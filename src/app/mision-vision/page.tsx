@@ -32,7 +32,7 @@ export default function VisionMision(){
         alt: '', 
         width: 1920, // Usa un ancho mayor
         height: 1080, // Usa un alto mayor
-        src: '/IMG_4984.jpg' 
+        src: '/fondo_2.png' 
       })
       
       const backgroundImage = getBackgroundImage(srcSet)
