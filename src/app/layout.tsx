@@ -25,9 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={ `multi-repeating-linear ${geistSans.variable} ${geistMono.variable} antialiased min-h-scree`}
       >
         {children}
+       
       </body>
     </html>
   );

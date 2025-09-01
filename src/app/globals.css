@@ -1,8 +1,31 @@
 @import "tailwindcss";
 
+@import 'hamburgers/dist/hamburgers.css';
+
+@layer base {
+  .hamburger {
+    all: unset;  /*Evita que Tailwind lo sobrescriba */
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --blanco: #e2b0b0;
+  --verde1: #0B3D2E;
+  --verde2: #146A32;
+  --verde3: #1E8449;
+  --verde4: #27AE60;
+  --verde5: #7DCEA0;
+  --verde6: #A8DFBF;
+  --verde7: #d0f1cb;
+  --seagreen: seagreen;
+  --forestgreen: rgb(34 139 34 / 60%);
+  --azulacero: rgb(70 130 180 / 80%);
+  --verdebosqueoscuro: rgb(34 85 34 / 80%);
+  --marrónNaranjatierra: rgb(139 69 19 / 60%);
+
+
 }
 
 @theme inline {
@@ -19,8 +42,79 @@
   }
 }
 
+/* Establecemos el modelo de caja alternativo, con este ancho, cualquier width es el ancho visible en la pagina */
+html {
+  box-sizing: border-box;
+}
+
+/* Configuramos el html para que todos los elementos antes y despus hereden el modelo de caja alternativo en la pagina */
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.multi-repeating-conic {
+  background:
+    repeating-conic-gradient(
+      from 0deg at 80% 50%,
+      #5691f580 0% 8.25%,
+      #b338ff80 8.25% 16.5%,
+      #f8305880 16.5% 25%
+    ),
+    repeating-conic-gradient(
+      from 15deg at 50% 50%,
+      #e856f580 0% 8.25%,
+      #ff384c80 8.25% 16.5%,
+      #e7f83080 16.5% 25%
+    ),
+    repeating-conic-gradient(
+      from 0deg at 20% 50%,
+      #f58356ff 0% 8.25%,
+      #caff38ff 8.25% 16.5%,
+      #30f88aff 16.5% 25%
+    );
+}
+.multi-repeating-linear {
+  background:
+    repeating-linear-gradient(
+      190deg,
+      rgb(0 100 0 / 60%) 40px,    /* verde oscuro */
+      rgb(0 128 0 / 60%) 80px,    /* verde medio */
+      rgb(34 139 34 / 60%) 120px, /* verde bosque */
+      rgb(184 90 0 / 60%) 160px,  /* naranja oscuro */
+      rgb(139 69 19 / 60%) 200px, /* marrón/naranja tierra */
+      rgb(75 0 130 / 60%) 240px,  /* índigo violeta */
+      rgb(128 0 128 / 60%) 280px, /* púrpura oscuro */
+      rgb(0 100 0 / 60%) 300px    /* cerrar ciclo con verde */
+    ),
+    repeating-linear-gradient(
+      -190deg,
+      rgb(0 70 0 / 60%) 30px,     /* verde más oscuro */
+      rgb(46 139 87 / 60%) 60px,  /* verde mar profundo */
+      rgb(85 107 47 / 60%) 90px,  /* verde oliva oscuro */
+      rgb(210 105 30 / 60%) 120px,/* chocolate (naranja tierra) */
+      rgb(165 42 42 / 60%) 150px, /* rojo parduzco */
+      rgb(148 0 211 / 60%) 180px, /* violeta oscuro */
+      rgb(106 90 205 / 60%) 210px,/* violeta apagado */
+      rgb(0 70 0 / 60%) 230px
+    ),
+    repeating-linear-gradient(
+      23deg,
+      darkgreen 50px,
+      forestgreen 100px,
+      seagreen 150px,
+      darkorange 200px,
+      peru 250px,
+      indigo 300px,
+      darkviolet 350px,
+      darkgreen 370px
+    );
+}
+
