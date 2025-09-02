@@ -29,9 +29,9 @@ export default function SidePanel(
      
         <nav
             className={`
-                fixed top-0 left-0 w-full h-full mt-30 bg-white transform transition-transform duration-300 ease-in-out z-30
+                absolute top-0 w-full mt-30 bg-white rounded-lg transform transition-transform duration-300 ease-in-out lg:mt-8
                 ${isActive ? 'translate-y-0' : '-translate-y-full'}
-                lg:relative lg:w-64 lg:h-[calc(100vh-4rem)] lg:translate-y-0 lg:mt-0 lg:p-0
+                
             `}
             >
             {sections.map((section) => (

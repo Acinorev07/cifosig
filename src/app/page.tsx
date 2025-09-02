@@ -72,7 +72,7 @@ export default function Home() {
      
       </header>
 
-      <aside className={`${isActive ? 'absolute' : 'hidden'} lg:bg-white lg:top-[8rem] lg:h-[calc(150vh-8rem)] lg:-mt-6 lg:ml-260 lg:w-70 rounded-md`}>
+      <aside className={`${isActive ? 'lg:absolute lg:right-0 mr-4' : 'hidden'} top-0 w-full min-h-full bg-white z-30 bg-white lg:top-[8rem] lg:h-[calc(130vh-8rem)] lg:-mt-6 lg:w-70 rounded-md`}>
         <SidePanel 
         isActive={isActive} setIsActive={setIsActive}
         />

@@ -53,17 +53,17 @@ export default function VisionMision(){
              {/*Pasamos estados al header */}
 
              <Header isActive ={isActive} setIsActive={setIsActive}/>
-             <aside className={`${isActive ? 'absolute' : 'hidden'} lg:bg-white lg:top-[8rem] lg:h-[calc(150vh-8rem)] lg:-mt-6 lg:ml-260 lg:w-70 rounded-md`}>
+             <aside className={`${isActive ? 'lg:absolute lg:right-0 mr-4' : 'hidden'} top-0 w-full min-h-full bg-white z-30 bg-white lg:top-[8rem] lg:h-[calc(130vh-8rem)] lg:-mt-6 lg:w-70 rounded-md`}>
                      <SidePanel 
                      isActive={isActive} setIsActive={setIsActive}
                      />
-            </aside>
+                   </aside>
             <main 
             className="row-start-2 grid grid-rows-2 lg:grid-cols-2 gap-3 rounded-lg items-center items-start mx-1 -mt-15 lg:h-[450px]"
             style={style}
             >
 
-                <div className="bg-[var(--azulacero)] rounded-lg mx-6 my-4 lg:mt-40 p-3 h-80">
+                <div className="bg-[var(--azulacero)] rounded-lg mx-6 my-4 lg:mt-40 p-3 min-h-80">
                     <h2 className="font-mono text-2xl font-semibold"> 
                         Misión del semillero 
                     </h2>
@@ -86,7 +86,7 @@ export default function VisionMision(){
 
                 </div>
 
-                <div className="bg-[var(--azulacero)] rounded-lg mx-6 my-4 lg:mt-40 p-3  h-80">
+                <div className="bg-[var(--azulacero)] rounded-lg mx-6 my-4 lg:mt-40 p-3  min-h-80">
                     <h2 className="font-mono text-2xl font-semibold"> 
                         Visión del semillero
                     </h2>
