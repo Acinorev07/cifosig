@@ -49,7 +49,7 @@ export default function VisionMision(){
     return(
 
         <>
-           <div className="grid grid-rows-[50px-1fr-20px] font-sans items-center justify-items-center min-h-body px-4 py-2 gap-16 sm:px-4 py-2 grid-rows-[50px-1fr-20px]">
+           <div className="grid grid-rows-[50px-1fr-20px] font-sans items-center justify-items-center min-h-body px-4 py-1 gap-16">
              {/*Pasamos estados al header */}
 
              <Header isActive ={isActive} setIsActive={setIsActive}/>
@@ -59,7 +59,7 @@ export default function VisionMision(){
                      />
                    </aside>
             <main 
-            className="row-start-2 grid grid-rows-2 lg:grid-cols-2 gap-3 rounded-lg items-center items-start mx-1 -mt-15 lg:h-[450px]"
+            className="row-start-2 grid grid-rows-2 lg:grid-cols-2 gap-3 rounded-lg items-center items-start mx-1 -mt-19 lg:h-[450px]"
             style={style}
             >
 
@@ -72,7 +72,7 @@ export default function VisionMision(){
                       alt={'Mapa de colombia echo en qgis'}
                       width={100}
                       height={100}
-                      className="float-left rounded-lg"
+                      className="float-left rounded-lg m-2"
                     />
 
                     <p>
@@ -95,7 +95,7 @@ export default function VisionMision(){
                       alt={'Mapa de colombia echo en qgis'}
                       width={100}
                       height={100}
-                      className="float-left rounded-lg"
+                      className="float-left rounded-lg m-2"
                     />
 
                     <p>

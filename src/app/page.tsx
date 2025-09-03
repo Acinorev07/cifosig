@@ -47,8 +47,8 @@ export default function Home() {
   }
 
   return (
-    <div className="grid grid-rows-[50px_1fr_20px] font-sans items-center justify-items-center min-h-body px-4 py-2 gap-16 sm:px-4 py-2 grid-rows-[50px_1fr_20px]">
-      <header className="row-start-1 bg-[var(--forestgreen)] rounded-lg text-center p-4 border-2 mx-4 my-6 w-full sm: mx-4 my-6 mt-15">
+    <div className="grid grid-rows-[50px_1fr_20px] font-sans items-center justify-items-center min-h-body px-1 py-2 gap-16">
+      <header className="row-start-1 bg-[var(--forestgreen)] rounded-lg text-center p-4 mx-4 my-6 min-w-full mx-4 my-6 mt-15">
         
          <div className="flex justify-between">
           <Image
@@ -72,18 +72,18 @@ export default function Home() {
      
       </header>
 
-      <aside className={`${isActive ? 'lg:absolute lg:right-0 mr-4' : 'hidden'} top-0 w-full min-h-full bg-white z-30 bg-white lg:top-[8rem] lg:h-[calc(130vh-8rem)] lg:-mt-6 lg:w-70 rounded-md`}>
+      <aside className={`${isActive ? 'lg:absolute right-0 mr-4' : 'hidden'} top-0 w-full bg-white z-30 bg-white lg:top-[8rem] lg:h-[calc(130vh-8rem)] lg:-mt-6 lg:w-70 rounded-md`}>
         <SidePanel 
         isActive={isActive} setIsActive={setIsActive}
         />
       </aside>
       
       <main 
-        className="row-start-2 grid grid-cols-2 rounded-lg lg:grid-cols-3 gap-3 items-center items-start mx-1 my-4"
+        className="row-start-2 grid grid-cols-2 rounded-lg lg:grid-cols-3 gap-3 items-center items-start mx-1 -my-2 p-4"
         style={style}
       >
         {/* Componente 4 */}
-        <div className="col-span-3 lg:col-span-2 bg-[var(--azulacero)] rounded-lg lg:bg-opacity-50  lg:border-r-4 lg:border-b-2 mx-2 my-4 h-70 lg:rounded-br-[60%] lg:shadow-[8px_8px_20px_rgba(59,130,246,0.4)]">
+        <div className="col-span-3 lg:col-span-2 bg-[var(--azulacero)] rounded-lg lg:bg-opacity-50 lg:border-r-4 lg:border-b-2 mx-2 my-4 min-h-70 lg:rounded-br-[60%] lg:shadow-[8px_8px_20px_rgba(59,130,246,0.4)]">
           <div className="flex justify-center">
              <h2 className="text-2xl font-bold p-2">
                Semillero de investigación SIFOSIG
@@ -91,20 +91,20 @@ export default function Home() {
 
           </div>
           
-          <div className="flex object-left p-4">
+          <div className="flex-wrap lg:flex-col object-left p-4">
             <Image
             src="/logo_semillero.jpeg"
             alt ="Integrantes del semilleros CIFOSIG"
             width={200}
             height={200}
-            className="rounded-full object-cover"
+            className="rounded-full float-left m-2"
             
             
           />
 
-            <p className="flex justify-center">
-                
-                -------------Texto-----------
+            <p className="justify-center text-2xl lg:text-4xl font-bold font-serif m-2">
+              
+                  Semillero de investigación en Ciencias Forestales y Sistemas de Información Geográfica.
 
             </p>
           
@@ -122,7 +122,7 @@ export default function Home() {
         </div>
 
         {/* Componente 7 */}
-        <div className="col-span-3 lg:col-span-2 bg-[var(--verdebosqueoscuro)] rounded-lg lg:bg-opacity-50 lg:border-l-4 lg:border-b-2 mx-2 my-4 h-70 lg:rounded-bl-[60%] lg:shadow-[8px_8px_20px_rgba(59,130,246,0.4)]">
+        <div className="col-span-3 lg:col-span-2 bg-[var(--verdebosqueoscuro)] rounded-lg lg:bg-opacity-50 lg:border-l-4 lg:border-b-2 mx-2 my-4 min-h-70 lg:rounded-bl-[60%] lg:shadow-[8px_8px_20px_rgba(59,130,246,0.4)]">
            <div className="flex justify-center">
              <h2 className="text-2xl font-bold p-2">
                Integrantes del semillero SIFOSIG
@@ -132,7 +132,7 @@ export default function Home() {
 
         
           
-          <div className="flex p-4">
+          <div className="flex-wrap lg:flex-col p-4">
 
             <p className="flex justify-center">
                 
@@ -145,7 +145,7 @@ export default function Home() {
             alt ="Integrantes del semilleros CIFOSIG"
             width={250}
             height={250}
-            className="rounded-full object-cover ml-auto"
+            className="rounded-full float-right m-2"
           />
           
           </div>
@@ -153,7 +153,7 @@ export default function Home() {
       </main>
       
       
-        <footer className="row-start-3 flex gap-[24px] bg-[var(--forestgreen)] flex-wrap rounded-lg items-center justify-center border-2 w-full min-h-full mb-20 sm: mt-8">
+        <footer className="row-start-3 flex gap-[24px] bg-[var(--forestgreen)] flex-wrap rounded-lg items-center justify-center w-full min-h-full mb-20 sm: mt-8">
           
             <h2 className="text-2xl text-dark-green font-bold p-2">Footer</h2>
             <h2 className="text-2xl text-dark-green font-bold p-2">Footer</h2>

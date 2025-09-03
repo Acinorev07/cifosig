@@ -81,6 +81,10 @@ body {
       #30f88aff 16.5% 25%
     );
 }
+
+.bg {
+  background-color: #17505e;
+}
 .multi-repeating-linear {
   background:
     repeating-linear-gradient(
@@ -108,10 +112,10 @@ body {
     repeating-linear-gradient(
       23deg,
       darkgreen 50px,
-      forestgreen 100px,
+      rgb(62, 104, 62) 100px,
       seagreen 150px,
-      darkorange 200px,
-      peru 250px,
+      rgb(71, 40, 1) 200px,
+      rgb(90, 67, 44) 250px,
       indigo 300px,
       darkviolet 350px,
       darkgreen 370px

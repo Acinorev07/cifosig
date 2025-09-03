@@ -16,7 +16,7 @@ export default function Header({isActive, setIsActive}:HeaderProps){
     return(
 
 
-    <header className="bg-[var(--forestgreen)] row-start-1 text-center p-4 border-2 rounded-lg mx-4 my-6 w-full mx-4 mt-1 ">
+    <header className="bg-[var(--forestgreen)] row-start-1 text-center p-4 rounded-lg mx-4 my-6 w-full mx-4 mt-1 ">
             
              <div className="flex justify-between">
               <Image
