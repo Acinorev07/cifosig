@@ -7,6 +7,7 @@ import HamburgerIcon from "@/components/HamburguerIcon";
 import { useState } from 'react';
 import SidePanel from "@/components/SidePanel";
 import Button from "@/components/Button";
+import Footer from "@/components/Footer";
 
 function getBackgroundImage(srcSet = '') {
 
@@ -48,7 +49,7 @@ export default function Home() {
   }
 
   return (
-    <div className="grid grid-rows-[50px_1fr_20px] font-sans items-center justify-items-center min-h-body px-1 py-2 gap-16">
+    <div className="grid grid-rows-[50px_1fr_20px] font-sans items-center justify-items-center min-h-body px-2 py-4 gap-16 mb-8">
       <header className="row-start-1 bg-[var(--forestgreen)] rounded-lg text-center p-4 mx-4 my-6 min-w-full mx-4 my-6 mt-15">
         
          <div className="flex justify-between">
@@ -80,7 +81,7 @@ export default function Home() {
       </aside>
       
       <main 
-        className="row-start-2 grid grid-cols-2 rounded-lg lg:grid-cols-3 gap-3 items-center items-start mx-1 -my-2 p-4"
+        className="row-start-2 grid grid-cols-2 rounded-lg lg:grid-cols-3 gap-3 items-center items-start mx-1 -my-2 mb-8 p-4"
         style={style}
       >
         {/* Componente 4 */}
@@ -154,7 +155,7 @@ export default function Home() {
       </main>
       
       
-        <footer className="row-start-3 flex gap-[24px] bg-[var(--forestgreen)] rounded-lg items-center justify-center min-w-full min-h-full pt-10 mt-10 ">
+        {/* <footer className="row-start-3 flex gap-[24px] bg-[var(--forestgreen)] rounded-lg items-center justify-center min-w-full min-h-full pb-2 mt-15  ">
           
             <div className="grid grid-rows-2 object-center ">
                <h2 className="text-2xl text-dark-green font-bold p-2">Redes Sociales</h2>
@@ -177,7 +178,12 @@ export default function Home() {
             </div>
            
           
-        </footer>
+
+        </footer> */}
+
+        <Footer>
+
+        </Footer>
       
     </div>
   );

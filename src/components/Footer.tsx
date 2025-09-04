@@ -6,7 +6,7 @@ export default function Footer(){
 
     return (
 
-        <footer className="bg-[var(--forestgreen)] rounded-lg row-start-3 flex gap-[24px] flex-wrap items-center justify-center w-full min-h-full -mt-14">
+        <footer className="bg-[var(--forestgreen)] rounded-lg row-start-3 flex gap-[24px] flex-wrap items-center justify-center w-full min-h-full -mt-14 pb-4">
           
            
             <div className="grid grid-rows-2 object-center ">
