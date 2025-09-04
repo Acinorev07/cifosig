@@ -49,7 +49,7 @@ export default function VisionMision(){
     return(
 
         <>
-           <div className="grid grid-rows-[50px-1fr-20px] font-sans items-center justify-items-center min-h-body px-4 py-1 gap-16">
+           <div className="grid grid-rows-[50px-1fr-20px] font-sans items-center justify-items-center min-h-50 px-4 py-1 gap-16">
              {/*Pasamos estados al header */}
 
              <Header isActive ={isActive} setIsActive={setIsActive}/>
@@ -59,11 +59,11 @@ export default function VisionMision(){
                      />
                    </aside>
             <main 
-            className="row-start-2 grid grid-rows-2 lg:grid-cols-2 gap-3 rounded-lg items-center items-start mx-1 -mt-19 lg:h-[450px]"
+            className="grid grid-rows-2 lg:flex gap-3  rounded-lg items-center items-start mx-1 -mt-19  "
             style={style}
             >
 
-                <div className="bg-[var(--azulacero)] rounded-lg mx-6 my-4 lg:mt-40 p-3 min-h-80">
+                <div className="bg-[var(--azulacero)] rounded-lg mx-6 my-4 lg:mt-10 p-3 min-h-80">
                     <h2 className="font-mono text-2xl font-semibold"> 
                         Misión del semillero 
                     </h2>
@@ -86,7 +86,7 @@ export default function VisionMision(){
 
                 </div>
 
-                <div className="bg-[var(--azulacero)] rounded-lg mx-6 my-4 lg:mt-40 p-3  min-h-80">
+                <div className="bg-[var(--azulacero)] rounded-lg mx-6 my-4 lg:mt-10 p-3  min-h-80">
                     <h2 className="font-mono text-2xl font-semibold"> 
                         Visión del semillero
                     </h2>

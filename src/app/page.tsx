@@ -6,6 +6,7 @@ import Image from "next/image";
 import HamburgerIcon from "@/components/HamburguerIcon";
 import { useState } from 'react';
 import SidePanel from "@/components/SidePanel";
+import Button from "@/components/Button";
 
 function getBackgroundImage(srcSet = '') {
 
@@ -153,10 +154,28 @@ export default function Home() {
       </main>
       
       
-        <footer className="row-start-3 flex gap-[24px] bg-[var(--forestgreen)] flex-wrap rounded-lg items-center justify-center w-full min-h-full mb-20 sm: mt-8">
+        <footer className="row-start-3 flex gap-[24px] bg-[var(--forestgreen)] rounded-lg items-center justify-center min-w-full min-h-full pt-10 mt-10 ">
           
-            <h2 className="text-2xl text-dark-green font-bold p-2">Footer</h2>
-            <h2 className="text-2xl text-dark-green font-bold p-2">Footer</h2>
+            <div className="grid grid-rows-2 object-center ">
+               <h2 className="text-2xl text-dark-green font-bold p-2">Redes Sociales</h2>
+              
+                <Button color="green" href="https://www.instagram.com/semillero_cifosig?igsh=MTFvaXBxcHRxdW85bQ==">
+                    <Image
+                        src="/logo_instagram.jpeg"
+                        alt ="Integrantes del semilleros CIFOSIG"
+                        width={50}
+                        height={50}
+                        className="rounded-full float-left m-2 transition-transform duration-300 hover:scale-130"
+                        />
+                        <p className="object-left pt-5 pl-4">
+                          Instagram
+                        </p>
+                 
+                </Button>
+              
+
+            </div>
+           
           
         </footer>
       
