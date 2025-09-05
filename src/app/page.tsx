@@ -114,8 +114,21 @@ export default function Home() {
         </div>
 
         {/* Componente 5 */}
-        <div className="bg-[var(--verdebosqueoscuro)] lg:bg-[var(--azulacero)] bg-opacity-50 rounded-lg mx-2 my-4 h-50">
-          <h2>componente 5</h2>
+        <div className="bg-[var(--verdebosqueoscuro)] lg:bg-[var(--azulacero)] bg-opacity-50 rounded-lg mx-2 my-4 min-h-50">
+          <div className="flex-rows justify-self-center">
+               <h2 className="text-2xl text-dark-green font-bold">Mapas</h2>
+              
+                <Button color="green" href="/Map">
+                    <Image
+                        src="/mapa_malaga_leaflet.png"
+                        alt ="Integrantes del semilleros CIFOSIG"
+                        width={150}
+                        height={150}
+                        className="rounded-lg transition-transform duration-300 hover:scale-130"
+                        />
+                 
+                </Button>
+            </div>
         </div>
 
         {/* Componente 6 */}
