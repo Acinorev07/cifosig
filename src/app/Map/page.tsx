@@ -22,8 +22,8 @@ export default function MapPage() {
             />
         </aside>
 
-      <main className=" mb-8">
-        <div className="p-20">
+      <main className=" mb-8 min-h-screen">
+        <div className="py-20 pl-4 pr-4 lg:px-20">
 
            <MapWidget />
 
