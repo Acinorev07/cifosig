@@ -1,0 +1,86 @@
+CIFOSIG
+|---.next
+|---node_modules
+|---public
+|    |---file.svg
+|    |---fondo_2.png
+|    |---fondo.jpeg
+|    |---globe-svg
+|    |---Fredy-png
+|    |---Veronica.jpeg
+|    |---integrantes.jpeg	
+|    |---IMG_4984.JPG
+|    |---integrantes.jpeg
+|    |---logo_instagram.jpeg
+|    |---logo_semillero.jpeg
+|    |---logo_uis.jpeg
+|    |---logo_uis.png
+|    |---mapa_aratoca.sig.png
+|    |---mapa_colombia_sig.png
+|    |---mapa_malaga.png
+|    |---next.svg
+|    |---vercel.svg
+|    |---window.svg
+|---src
+|    |---app
+|    |    |---api
+|    |    |    |---members
+|    |    |    |    |---data.ts
+|    |    |    |    |---route.ts
+|    |    |    |---route.ts
+|    |    |---integrantes
+|    |    |    |---components
+|    |    |    |    |---Members.tsx
+|    |    |    |---page.tsx
+|    |    |---Map
+|    |    |    |---components
+|    |    |    |    |---map-widget.ts
+|    |    |    |    |---Map.ts
+|    |    |    |---page.tsx
+|    |    |---mision-vision
+|    |    |    |---loading.tsx
+|    |    |    |---page.tsx
+|    |    |---favicon.ico
+|    |    |---globals.css
+|    |    |---layout.tsx
+|    |    |---page.tsx
+|    |---components
+|    |    |---Button.tsx
+|    |    |---Card.tsx
+|    |    |---Footer.tsx
+|    |    |---HamburguerIcon.tsx
+|    |    |---Header.tsx
+|    |    |---SidePanel.module.css
+|    |    |---SidePanel.tsx
+|    |---.gitignore
+|    |---eslint.config.mjs
+|    |---next-env.d.ts
+|    |---next.config.ts
+|    |---package-lock.json
+|    |---package.json
+|    |---postcss.config.mjs
+|    |---README.md
+|____|---tsconfig.json
+
+
+
+
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries/React_interactivity_events_state
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

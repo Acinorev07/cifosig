@@ -8,6 +8,7 @@ import { useState } from 'react';
 import SidePanel from "@/components/SidePanel";
 import Button from "@/components/Button";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 function getBackgroundImage(srcSet = '') {
 
@@ -49,30 +50,10 @@ export default function Home() {
   }
 
   return (
-    <div className="grid grid-rows-[50px_1fr_20px] font-sans items-center justify-items-center min-h-body px-2 py-4 gap-16 mb-8">
-      <header className="row-start-1 bg-[var(--forestgreen)] rounded-lg text-center p-4 mx-4 my-6 min-w-full mx-4 my-6 mt-15">
-        
-         <div className="flex justify-between">
-          <Image
-            src="/logo_uis.png"
-            alt ="Logo Universidad Industrial de Santader"
-            width={100}
-            height={10}
-          />
-          <h2 className="text-2xl font-bold p-2">CIFOSIG</h2>
-
-           <button 
-            className={`hamburger hamburger--collapse ${
-                isActive ? 'is-active' : ''
-              }`}
-            onClick={() => setIsActive(!isActive)}
-            >
-            <HamburgerIcon/>
-            </button>
-
-        </div>
+    <div className="grid grid-rows-[auto_1fr_auto] font-sans items-center justify-items-center min-h-body px-2 py-2 gap-1 mb-1">
      
-      </header>
+
+      <Header isActive ={isActive} setIsActive={setIsActive}/>
 
       <aside className={`${isActive ? 'lg:absolute right-0 mr-4' : 'hidden'} top-0 w-full bg-white z-30 bg-white lg:top-[8rem] lg:h-[calc(130vh-8rem)] lg:-mt-6 lg:w-70 rounded-md`}>
         <SidePanel 
@@ -81,7 +62,7 @@ export default function Home() {
       </aside>
       
       <main 
-        className="row-start-2 grid grid-cols-2 rounded-lg lg:grid-cols-3 gap-3 items-center items-start mx-1 -my-2 mb-8 p-4"
+        className="grid grid-cols-2 rounded-lg lg:grid-cols-3 gap-3 items-center items-start mx-1  mb-4 p-4"
         style={style}
       >
         {/* Componente 4 */}
