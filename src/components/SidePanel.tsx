@@ -17,7 +17,9 @@ export default function SidePanel(
  
 
   const sections = [
-    { id: '/', title: 'Home' },
+
+    { id: '/', title: 'Inicio' },
+
     { id: 'seccion', title: 'Quienes somos' },
     { id: '/mision-vision', title: 'Misión y Visión' },
     { id: 'seccion4', title: 'Blog' },

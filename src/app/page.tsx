@@ -37,10 +37,11 @@ export default function Home() {
     src: '/fondo.jpeg' 
   })
   
-  const backgroundImage = getBackgroundImage(srcSet)
-  
+
+  // const backgroundImage = getBackgroundImage(srcSet)
   const style = { 
-    backgroundImage, 
+    // backgroundImage, 
+
     backgroundSize: 'cover', // Esto es crucial
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -85,7 +86,9 @@ export default function Home() {
         style={style}
       >
         {/* Componente 4 */}
-        <div className="col-span-3 lg:col-span-2 bg-[var(--azulacero)] rounded-lg lg:bg-opacity-50 lg:border-r-4 lg:border-b-2 mx-2 my-4 min-h-70 lg:rounded-br-[60%] lg:shadow-[8px_8px_20px_rgba(59,130,246,0.4)]">
+
+        <div className="col-span-3 lg:col-span-2 bg-[var(--azulacero)] rounded-lg lg:bg-opacity-50 lg:border-r-4 lg:border-b-2 mx-2 my-4 min-h-70 lg:shadow-[8px_8px_20px_rgba(59,130,246,0.4)]">
+
           <div className="flex justify-center">
              <h2 className="text-2xl font-bold p-2">
                Semillero de investigación SIFOSIG
@@ -100,9 +103,12 @@ export default function Home() {
             width={200}
             height={200}
             className="rounded-full float-left m-2"
+
+            />
+
             
             
-          />
+
 
             <p className="justify-center text-2xl lg:text-4xl font-bold font-serif m-2">
               
@@ -137,62 +143,44 @@ export default function Home() {
         </div>
 
         {/* Componente 7 */}
-        <div className="col-span-3 lg:col-span-2 bg-[var(--verdebosqueoscuro)] rounded-lg lg:bg-opacity-50 lg:border-l-4 lg:border-b-2 mx-2 my-4 min-h-70 lg:rounded-bl-[60%] lg:shadow-[8px_8px_20px_rgba(59,130,246,0.4)]">
+
+        <div className="overflow-auto h-50 col-span-3 lg:col-span-2 bg-[var(--verdebosqueoscuro)] rounded-lg lg:bg-opacity-50 lg:border-l-4 lg:border-b-2 mx-2 my-4 lg:shadow-[8px_8px_20px_rgba(59,130,246,0.4)] ">
+
            <div className="flex justify-center">
              <h2 className="text-2xl font-bold p-2">
                Integrantes del semillero SIFOSIG
              </h2>
 
-          </div>
+
+            </div>
 
         
           
-          <div className="flex-wrap lg:flex-col p-4">
+          <div className="flex-wrap lg:flex-col object-left p-4">
 
-            <p className="flex justify-center">
+             <Image
+              src="/integrantes.jpeg"
+              alt ="Integrantes del semilleros CIFOSIG"
+              width={250}
+              height={250}
+              className="rounded-full float-right m-2"
+            />
+
+            <p className="justify-center text-2xl lg:text-1xl font-bold font-serif m-2">
                 
-                -------------Texto-----------
-
+                El Semillero de Investigación en Ciencias Forestales y Sistemas de Información Geográfica (CIFOSIG) 
+                somos un grupo de estudiantes de Ingeniería Forestal del IPRED – Sede Málaga (UIS), adscritos al Grupo 
+                de Investigación en Ciencias Agrarias y Ecología (GICAE). 
+                Trabajamos en la integración de las ciencias forestales y la geomática para generar conocimiento orientado a la conservación, 
+                el manejo sostenible y la restauración de los recursos forestales.
+                A través del uso de sistemas de información geográfica y herramientas geoespaciales, 
+                fortalecemos la formación investigativa, el análisis territorial y el compromiso con el desarrollo sostenible y la innovación en el ámbito forestal.
             </p>
 
-            <Image
-            src="/integrantes.jpeg"
-            alt ="Integrantes del semilleros CIFOSIG"
-            width={250}
-            height={250}
-            className="rounded-full float-right m-2"
-          />
-          
           </div>
         </div>
       </main>
-      
-      
-        {/* <footer className="row-start-3 flex gap-[24px] bg-[var(--forestgreen)] rounded-lg items-center justify-center min-w-full min-h-full pb-2 mt-15  ">
-          
-            <div className="grid grid-rows-2 object-center ">
-               <h2 className="text-2xl text-dark-green font-bold p-2">Redes Sociales</h2>
-              
-                <Button color="green" href="https://www.instagram.com/semillero_cifosig?igsh=MTFvaXBxcHRxdW85bQ==">
-                    <Image
-                        src="/logo_instagram.jpeg"
-                        alt ="Integrantes del semilleros CIFOSIG"
-                        width={50}
-                        height={50}
-                        className="rounded-full float-left m-2 transition-transform duration-300 hover:scale-130"
-                        />
-                        <p className="object-left pt-5 pl-4">
-                          Instagram
-                        </p>
-                 
-                </Button>
-              
 
-            </div>
-           
-          
-
-        </footer> */}
 
         <Footer>
 
