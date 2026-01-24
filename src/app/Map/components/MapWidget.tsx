@@ -3,9 +3,11 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import  RutaLayer from "@/app/Map/components/GeoJsonLayer";
+
 
 // Fix para los íconos en Next.js
-delete (L.Icon.Default.prototype as unknown as { _getIconUrl: unknown })._getIconUrl;
+// delete (L.Icon.Default.prototype as unknown as { _getIconUrl: unknown })._getIconUrl;
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: "/leaflet/marker-icon-2x.png",
@@ -19,15 +21,18 @@ export default function MapWidget() {
       center={[6.699, -72.732]} // Málaga, Santander
       zoom={13}
       style={{ height: "500px", width: "100%" }}
+      whenReady={() => {
+        console.log("Mapa listo");
+       }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {/* <Marker position={[6.699, -72.732]}>
-        <Popup>Málaga, Santander 🚩</Popup>
-      </Marker> */}
+      
+      <RutaLayer />
+     
     </MapContainer>
   );
 }
