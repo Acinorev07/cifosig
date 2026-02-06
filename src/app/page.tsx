@@ -91,7 +91,7 @@ export default function Home() {
 
           <div className="flex justify-center">
              <h2 className="text-2xl font-bold p-2">
-               Semillero de investigación SIFOSIG
+               Semillero de investigación CIFOSIG
              </h2>
 
           </div>
