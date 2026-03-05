@@ -3,7 +3,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-// import  RutaLayer from "@/app/Map/components/GeoJsonLayer";
+import  RutaLayers from "@/app/Map/[rutaId]/components/GeoJsonLayers";
 
 
 // Fix para los íconos en Next.js
@@ -15,7 +15,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "/leaflet/marker-shadow.png",
 });
 
-export default function MapWidget() {
+export default function MapWidgets({ rutaId }: { rutaId: string }) {
   
    if (typeof window === "undefined") return null;
   return (
@@ -33,7 +33,7 @@ export default function MapWidget() {
       />
 
       
-      {/* <RutaLayer /> */}
+      <RutaLayers rutaId={rutaId}/>
      
     </MapContainer>
   );

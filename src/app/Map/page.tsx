@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import HamburgerIcon from "@/components/HamburguerIcon";
+import { useRouter } from "next/navigation";
 
 const ClientOnlyMap = dynamic(() => import("@/app/Map/components/ClientOnlyMap"), {
   ssr: false,
@@ -25,6 +26,7 @@ const ClientOnlyMap = dynamic(() => import("@/app/Map/components/ClientOnlyMap")
 
 export default function MapPage() {
   const [isActive, setIsActive] = useState(false);
+  const router = useRouter();
 
   return (
     <div className="grid grid-rows-[50px_1fr_20px] font-sans items-center justify-items-center min-h-body px-2 py-4 gap-16 mb-8">
@@ -64,6 +66,22 @@ export default function MapPage() {
           >
         <div className="relative z-0 py-20 px-4 lg:px-20">
           <ClientOnlyMap />
+          
+        </div>
+        <div className="flex justify-center justify-items-stretch">
+          <button
+            className="m-2 bg-[var(--dorado)] rounded container"
+            onClick={() => router.push("/Map/1")}
+          >
+            Ruta 1
+          </button>
+
+          <button
+            className="m-2 bg-[var(--dorado)] rounded container"
+            onClick={() => router.push("/Map/2")}
+          >
+            Ruta 2
+          </button>
         </div>
       </main>
 
