@@ -11,7 +11,9 @@ export async function POST(request:Request){
     const ruta = await request.json();
     const newRuta = {
         id: rutas.length + 1,
-        nombre: ruta.name
+        nombre: ruta.name,
+        link: ruta.link,
+        imagen: ruta.imagen
     }
 
     // Como rutas es un arreglo, entonces podemos hacer un push para agregar una nueva ruta
