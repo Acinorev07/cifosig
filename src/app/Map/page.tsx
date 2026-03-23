@@ -1,13 +1,12 @@
 "use client";
-
-import Header from "@/components/Header";
 import SidePanel from "@/components/SidePanel";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import HamburgerIcon from "@/components/HamburguerIcon";
 import { useRouter } from "next/navigation";
+import CardRutas from "./components/CardRutas";
 
 const ClientOnlyMap = dynamic(() => import("@/app/Map/components/ClientOnlyMap"), {
   ssr: false,
@@ -26,7 +25,18 @@ const ClientOnlyMap = dynamic(() => import("@/app/Map/components/ClientOnlyMap")
 
 export default function MapPage() {
   const [isActive, setIsActive] = useState(false);
+  const [rutas, setRutas] = useState<any[]>([]);
   const router = useRouter();
+
+  useEffect(()=>{
+
+    fetch(`/api/rutas`)
+       .then(res=>res.json())
+       .then(data => {
+        setRutas(data)
+       })
+       .catch( err => console.error(err))
+  },[])
 
   return (
     <div className="grid grid-rows-[50px_1fr_20px] font-sans items-center justify-items-center min-h-body px-2 py-4 gap-16 mb-8">
@@ -68,8 +78,23 @@ export default function MapPage() {
           <ClientOnlyMap />
           
         </div>
-        <div className="flex justify-center justify-items-stretch">
-          <button
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+          
+          {
+            rutas.map((ruta)=>(
+               
+              <CardRutas 
+                 key = {ruta.id}
+                 id = {ruta.id}
+                 name = {ruta.nombre}
+                 link = {ruta.link}
+                 image = {ruta.imagen}
+              />
+
+            ))}
+
+
+          {/* <button
             className="m-2 bg-[var(--dorado)] rounded container"
             onClick={() => router.push("/Map/1")}
           >
@@ -81,7 +106,7 @@ export default function MapPage() {
             onClick={() => router.push("/Map/2")}
           >
             Ruta 2
-          </button>
+          </button> */}
         </div>
       </main>
 

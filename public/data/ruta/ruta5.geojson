@@ -1,0 +1,211 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7645190860862,
+                    6.66489095902074,
+                    3047.47534179688
+                ]
+            },
+            "properties": {
+                "name": "Bosque pino",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-08-21T09:00:40-05:00"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7661100784123,
+                    6.66823195818244,
+                    3099.46118164062
+                ]
+            },
+            "properties": {
+                "name": "Camino real ",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-08-21T09:28:11-05:00",
+                "Description": "Hasta donde se recorrio",
+                "pdfmaps_photos": "<img src=\"images/Camino real .jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7651614569842,
+                    6.6677938366176,
+                    3095.81005859375
+                ]
+            },
+            "properties": {
+                "name": "Cerca",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-08-21T09:23:35-05:00",
+                "pdfmaps_photos": "<img src=\"images/Marca de posición 5.jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7643602914479,
+                    6.66506321309758,
+                    3048.23974609375
+                ]
+            },
+            "properties": {
+                "name": "IED san José de Miranda ",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-08-21T08:52:34-05:00",
+                "pdfmaps_photos": "<img src=\"images/Marca de posición 4.jpg\" /><br /><img src=\"images/Marca de posición 4 (1).jpg\" /><br /><img src=\"images/Marca de posición 4 (2).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.764684664298,
+                    6.66636647961238,
+                    3045.13647460938
+                ]
+            },
+            "properties": {
+                "name": "Inicio área natural ",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-08-21T09:06:43-05:00",
+                "pdfmaps_photos": "<img src=\"images/1_Marca de posición 5.jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.1454086303711,
+                    4.70487833023071,
+                    2545.57934570312
+                ]
+            },
+            "properties": {
+                "name": "Marca de posición 1",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-08-13T10:41:03-05:00"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7322354139468,
+                    6.70448150132951,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Marca de posición 2",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-08-13T13:51:02-05:00"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7321374987513,
+                    6.70474598157883,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Marca de posición 3",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-08-13T13:51:58-05:00"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.764526930552,
+                    6.66492997583041,
+                    3048.39184570312
+                ]
+            },
+            "properties": {
+                "name": "Marca de posición 4",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-08-21T09:02:53-05:00",
+                "pdfmaps_photos": "<img src=\"images/1_Marca de posición 4.jpg\" /><br /><img src=\"images/1_Marca de posición 4 (1).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7646236421679,
+                    6.66689404182628,
+                    3056.66821289062
+                ]
+            },
+            "properties": {
+                "name": "Mirador",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-08-21T09:09:59-05:00",
+                "pdfmaps_photos": "<img src=\"images/2_Marca de posición 5.jpg\" /><br /><img src=\"images/Marca de posición 5 (1).jpg\" /><br /><img src=\"images/Marca de posición 5 (2).jpg\" /><br /><img src=\"images/Marca de posición 5 (3).jpg\" /><br /><img src=\"images/Marca de posición 5 (4).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7647408501983,
+                    6.66736060192211,
+                    3073.49194335938
+                ]
+            },
+            "properties": {
+                "name": "Visual panorámica del bosque ",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-08-21T09:16:38-05:00",
+                "pdfmaps_photos": "<img src=\"images/3_Marca de posición 5.jpg\" /><br /><img src=\"images/1_Marca de posición 5 (1).jpg\" /><br /><img src=\"images/Visual panorámica del bosque .jpg\" /><br /><img src=\"images/Visual panorámica del bosque  (1).jpg\" /><br /><img src=\"images/Visual panorámica del bosque  (2).jpg\" /><br /><img src=\"images/Visual panorámica del bosque  (3).jpg\" /><br />"
+            }
+        }
+    ]
+}

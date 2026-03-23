@@ -1,0 +1,554 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7643890380859,
+                    6.66507816314696,
+                    3049.36791992188
+                ]
+            },
+            "properties": {
+                "name": "Inicio ",
+                "styleUrl": "#style1",
+                "styleHash": "3a93999a",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/teal_pin.png",
+                "timestamp": "2026-02-26T09:05:41-05:00",
+                "Description": "Sendero 2"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7643928234417,
+                    6.6650780794238,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Marca de posición 6",
+                "styleUrl": "#style1",
+                "styleHash": "3a93999a",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/teal_pin.png",
+                "timestamp": "2026-02-26T09:00:13-05:00"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7658119141778,
+                    6.6491613264976,
+                    3193.365234375
+                ]
+            },
+            "properties": {
+                "name": "Nacimiento ",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:59:52-05:00",
+                "pdfmaps_photos": "<img src=\"images/Nacimiento .jpg\" /><br /><img src=\"images/Nacimiento  (1).jpg\" /><br /><img src=\"images/Nacimiento  (2).jpg\" /><br /><img src=\"images/Nacimiento  (3).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7632827758789,
+                    6.65521144866943,
+                    3113.0849609375
+                ]
+            },
+            "properties": {
+                "name": "P10",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:34:22-05:00",
+                "pdfmaps_photos": "<img src=\"images/P10.jpg\" /><br /><img src=\"images/P10 (1).jpg\" /><br /><img src=\"images/P10 (2).jpg\" /><br /><img src=\"images/P10 (3).jpg\" /><br /><img src=\"images/P10 (4).jpg\" /><br /><img src=\"images/P10 (5).jpg\" /><br /><img src=\"images/P10 (6).jpg\" /><br /><img src=\"images/P10 (7).jpg\" /><br /><img src=\"images/P10 (8).jpg\" /><br /><img src=\"images/P10 (9).jpg\" /><br /><img src=\"images/P10 (10).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7633702003901,
+                    6.65465770399783,
+                    3119.23217773438
+                ]
+            },
+            "properties": {
+                "name": "P11",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:36:22-05:00",
+                "pdfmaps_photos": "<img src=\"images/P11.jpg\" /><br /><img src=\"images/P11 (1).jpg\" /><br /><img src=\"images/P11 (2).jpg\" /><br /><img src=\"images/P11 (3).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7645802575324,
+                    6.65414548000358,
+                    3140.20776367188
+                ]
+            },
+            "properties": {
+                "name": "P12",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:41:54-05:00",
+                "pdfmaps_photos": "<img src=\"images/P12.jpg\" /><br /><img src=\"images/P12 (1).jpg\" /><br /><img src=\"images/P12 (2).jpg\" /><br /><img src=\"images/P12 (3).jpg\" /><br /><img src=\"images/P12 (4).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7646678589281,
+                    6.65362676850261,
+                    3154.17211914062
+                ]
+            },
+            "properties": {
+                "name": "P12",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:43:53-05:00",
+                "Description": "Afloramiento de agua",
+                "pdfmaps_photos": "<img src=\"images/1_P12.jpg\" /><br /><img src=\"images/1_P12 (1).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7639340133864,
+                    6.65233447031194,
+                    3150.98022460938
+                ]
+            },
+            "properties": {
+                "name": "P13",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:47:21-05:00",
+                "Description": "Mirador",
+                "pdfmaps_photos": "<img src=\"images/P13.jpg\" /><br /><img src=\"images/P13 (1).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7642859142568,
+                    6.65194325220653,
+                    3173.26953125
+                ]
+            },
+            "properties": {
+                "name": "P14",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:49:43-05:00",
+                "Description": "Mirador 2 cañon chicamocha",
+                "pdfmaps_photos": "<img src=\"images/P14.jpg\" /><br /><img src=\"images/P14 (1).jpg\" /><br /><img src=\"images/P14 (2).jpg\" /><br /><img src=\"images/P14 (3).jpg\" /><br /><img src=\"images/P14 (4).jpg\" /><br /><img src=\"images/P14 (5).jpg\" /><br /><img src=\"images/P14 (6).jpg\" /><br /><img src=\"images/P14 (7).jpg\" /><br /><img src=\"images/P14 (8).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7651295855993,
+                    6.6504022766772,
+                    3172.47143554688
+                ]
+            },
+            "properties": {
+                "name": "P15",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:54:06-05:00",
+                "pdfmaps_photos": "<img src=\"images/P15.jpg\" /><br /><img src=\"images/P15 (1).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7659180261751,
+                    6.64951622521159,
+                    3193.48559570312
+                ]
+            },
+            "properties": {
+                "name": "P16",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:56:50-05:00",
+                "Description": "Vista y afloramiento agua",
+                "pdfmaps_photos": "<img src=\"images/P16.jpg\" /><br /><img src=\"images/P16 (1).jpg\" /><br /><img src=\"images/P16 (2).jpg\" /><br /><img src=\"images/P16 (3).jpg\" /><br /><img src=\"images/P16 (4).jpg\" /><br /><img src=\"images/P16 (5).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7637712553358,
+                    6.66098687246747,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "P4",
+                "styleUrl": "#style1",
+                "styleHash": "3a93999a",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/teal_pin.png",
+                "timestamp": "2026-02-26T09:15:27-05:00",
+                "Description": "Sendero 2",
+                "pdfmaps_photos": "<img src=\"images/P4.jpg\" /><br /><img src=\"images/P4 (1).jpg\" /><br /><img src=\"images/P4 (2).jpg\" /><br /><img src=\"images/P4 (3).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7633883754806,
+                    6.66033613386241,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "P5",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:17:36-05:00",
+                "Description": "Sendero 2",
+                "pdfmaps_photos": "<img src=\"images/P5.jpg\" /><br /><img src=\"images/P5 (1).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7636806291097,
+                    6.65989105373916,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "P6",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:19:29-05:00",
+                "Description": "Sendero 2",
+                "pdfmaps_photos": "<img src=\"images/P6.jpg\" /><br /><img src=\"images/P6 (1).jpg\" /><br /><img src=\"images/P6 (2).jpg\" /><br /><img src=\"images/P6 (3).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7631837973288,
+                    6.65894584188374,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "P7",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:22:28-05:00",
+                "Description": "Sendero 2",
+                "pdfmaps_photos": "<img src=\"images/P7.jpg\" /><br /><img src=\"images/P7 (1).jpg\" /><br /><img src=\"images/P7 (2).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7635347544393,
+                    6.6578262322901,
+                    3084.00341796875
+                ]
+            },
+            "properties": {
+                "name": "P8",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:25:25-05:00",
+                "pdfmaps_photos": "<img src=\"images/P8.jpg\" /><br /><img src=\"images/P8 (1).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7638203937538,
+                    6.65625774215791,
+                    3107.50659179688
+                ]
+            },
+            "properties": {
+                "name": "P9",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:28:53-05:00",
+                "pdfmaps_photos": "<img src=\"images/P9.jpg\" /><br /><img src=\"images/P9 (1).jpg\" /><br /><img src=\"images/P9 (2).jpg\" /><br /><img src=\"images/P9 (3).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7672390722178,
+                    6.64771937625924,
+                    3218.42578125
+                ]
+            },
+            "properties": {
+                "name": "Pin17 ",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T10:12:15-05:00",
+                "Description": "Fin recorrido ",
+                "pdfmaps_photos": "<img src=\"images/Pin17 .jpg\" /><br /><img src=\"images/Pin17  (1).jpg\" /><br /><img src=\"images/Pin17  (2).jpg\" /><br /><img src=\"images/Pin17  (3).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7645620046321,
+                    6.66344639020829,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Punto 3",
+                "styleUrl": "#style3",
+                "styleHash": "-45a6e295",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/teal_pin_classic.png",
+                "timestamp": "2026-02-26T09:09:51-05:00",
+                "pdfmaps_photos": "<img src=\"images/Punto 3.jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7639389038086,
+                    6.66217422485351,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Punto 3",
+                "styleUrl": "#style2",
+                "styleHash": "-7e7e0d40",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2026-02-26T09:12:56-05:00",
+                "Description": "Sendero 2",
+                "pdfmaps_photos": "<img src=\"images/1_Punto 3.jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -72.76442356,
+                        6.66505798,
+                        3071.38989257812
+                    ],
+                    [
+                        -72.76439995,
+                        6.66506686,
+                        3068.96142578125
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "Trayectoria 1",
+                "styleUrl": "#style4",
+                "styleHash": "78c30e07",
+                "timestamp": "2026-02-26T09:01:39-05:00",
+                "stroke": "#ff802f",
+                "stroke-opacity": 1,
+                "stroke-width": 4,
+                "fill-opacity": 0,
+                "coordTimes": [
+                    "2026-02-26T09:01:40-05:00",
+                    "2026-02-26T09:02:51-05:00"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -72.7319485,
+                        6.7051405,
+                        2214.60009765625
+                    ],
+                    [
+                        -72.73196266,
+                        6.70523405,
+                        2208.07373046875
+                    ],
+                    [
+                        -72.73201666,
+                        6.70523667,
+                        2218.2939453125
+                    ],
+                    [
+                        -72.73204646,
+                        6.70525865,
+                        2211.78540039062
+                    ],
+                    [
+                        -72.73203201,
+                        6.70527156,
+                        2212.17919921875
+                    ],
+                    [
+                        -72.73202503,
+                        6.70528893,
+                        2214.57861328125
+                    ],
+                    [
+                        -72.7319717,
+                        6.7050933,
+                        2214.7001953125
+                    ],
+                    [
+                        -72.7319449,
+                        6.7051255,
+                        2214.7001953125
+                    ],
+                    [
+                        -72.7319491,
+                        6.7051467,
+                        2214.60009765625
+                    ],
+                    [
+                        -72.7319505,
+                        6.7050854,
+                        2214.60009765625
+                    ],
+                    [
+                        -72.731975,
+                        6.7051286,
+                        2214.60009765625
+                    ],
+                    [
+                        -72.7319685,
+                        6.7050601,
+                        2214.7001953125
+                    ],
+                    [
+                        -72.7319689,
+                        6.7051483,
+                        2214.7001953125
+                    ],
+                    [
+                        -72.7319768,
+                        6.7051722,
+                        2214.60009765625
+                    ],
+                    [
+                        -72.7319751,
+                        6.7051107,
+                        2214.60009765625
+                    ],
+                    [
+                        -72.7319211,
+                        6.7050686,
+                        2214.7001953125
+                    ],
+                    [
+                        -72.7319592,
+                        6.7051201,
+                        2214.60009765625
+                    ],
+                    [
+                        -72.7319593,
+                        6.7051434,
+                        2214.7001953125
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "Trayectoria 2",
+                "styleUrl": "#style4",
+                "styleHash": "78c30e07",
+                "timestamp": "2026-03-04T11:00:34-05:00",
+                "stroke": "#ff802f",
+                "stroke-opacity": 1,
+                "stroke-width": 4,
+                "fill-opacity": 0,
+                "coordTimes": [
+                    "2026-03-04T11:00:34-05:00",
+                    "2026-03-04T11:00:37-05:00",
+                    "2026-03-04T11:00:40-05:00",
+                    "2026-03-04T11:00:42-05:00",
+                    "2026-03-04T11:00:46-05:00",
+                    "2026-03-04T11:01:14-05:00",
+                    "2026-03-04T11:03:25-05:00",
+                    "2026-03-04T11:03:46-05:00",
+                    "2026-03-04T11:06:00-05:00",
+                    "2026-03-04T11:06:43-05:00",
+                    "2026-03-04T11:07:05-05:00",
+                    "2026-03-04T11:07:48-05:00",
+                    "2026-03-04T11:08:09-05:00",
+                    "2026-03-04T11:08:31-05:00",
+                    "2026-03-04T11:08:52-05:00",
+                    "2026-03-04T11:09:14-05:00",
+                    "2026-03-04T11:09:35-05:00",
+                    "2026-03-04T11:10:18-05:00"
+                ]
+            }
+        }
+    ]
+}

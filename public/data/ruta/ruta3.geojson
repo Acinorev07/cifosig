@@ -1,0 +1,286 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7100435010919,
+                    6.74146997035541,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Cebolla",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T09:48:39-05:00",
+                "pdfmaps_photos": "<img src=\"images/Cebolla.jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.709412125171,
+                    6.74057278152369,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Cebolla",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T09:52:00-05:00",
+                "pdfmaps_photos": "<img src=\"images/1_Cebolla.jpg\" /><br /><img src=\"images/Cebolla (1).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7180408184503,
+                    6.72149949807158,
+                    2062.18212890625
+                ]
+            },
+            "properties": {
+                "name": "Ciprés ",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T08:58:58-05:00",
+                "pdfmaps_photos": "<img src=\"images/Ciprés .jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7233644240397,
+                    6.72344231345767,
+                    2057.02978515625
+                ]
+            },
+            "properties": {
+                "name": "Cuerpo de agua",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T08:46:04-05:00",
+                "pdfmaps_photos": "<img src=\"images/Cuerpo de agua.jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7105107498475,
+                    6.73968862723393,
+                    1942.49853515625
+                ]
+            },
+            "properties": {
+                "name": "Desliz",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T09:41:04-05:00"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7104950950019,
+                    6.7388577188646,
+                    1946.71801757812
+                ]
+            },
+            "properties": {
+                "name": "Deslizamiento chiquito ",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T09:38:58-05:00",
+                "pdfmaps_photos": "<img src=\"images/Deslizamiento chiquito .jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7196994402521,
+                    6.72290784667043,
+                    2078.92846679688
+                ]
+            },
+            "properties": {
+                "name": "Entrada agua blanca",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T08:54:56-05:00",
+                "pdfmaps_photos": "<img src=\"images/Entrada agua blanca.jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.6997822594432,
+                    6.75092609943447,
+                    1893.47436523438
+                ]
+            },
+            "properties": {
+                "name": "Estadero",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T14:58:08-05:00"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.6997833251953,
+                    6.75092601776123,
+                    1893.50329589844
+                ]
+            },
+            "properties": {
+                "name": "Invasión ",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-23T12:00:46-05:00"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7225385889308,
+                    6.72345130741391,
+                    2064.70678710938
+                ]
+            },
+            "properties": {
+                "name": "Invernadero ",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T08:49:08-05:00",
+                "pdfmaps_photos": "<img src=\"images/Invernadero .jpg\" /><br /><img src=\"images/Invernadero  (1).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7230349062663,
+                    6.72251279443624,
+                    2047.4189453125
+                ]
+            },
+            "properties": {
+                "name": "Invernaderos ",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T08:43:13-05:00",
+                "pdfmaps_photos": "<img src=\"images/Invernaderos .jpg\" /><br /><img src=\"images/Invernaderos  (1).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7071588237787,
+                    6.73866567690794,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Puente caido",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T10:00:17-05:00",
+                "pdfmaps_photos": "<img src=\"images/Puente caido.jpg\" /><br /><img src=\"images/Puente caido (1).jpg\" /><br /><img src=\"images/Puente caido (2).jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7103857347163,
+                    6.74206036210748,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Repollo",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T09:47:14-05:00",
+                "pdfmaps_photos": "<img src=\"images/Repollo.jpg\" /><br />"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.703354666226,
+                    6.7439420224502,
+                    1843.70495605469
+                ]
+            },
+            "properties": {
+                "name": "Termales",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T10:23:16-05:00"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.7110428740448,
+                    6.74205542011586,
+                    1936.34716796875
+                ]
+            },
+            "properties": {
+                "name": "Tomate ",
+                "styleUrl": "#style1",
+                "styleHash": "-29e4e2c1",
+                "icon": "http://download.avenza.com/images/pdfmaps_icons/red_pin.png",
+                "timestamp": "2025-12-19T09:44:45-05:00",
+                "pdfmaps_photos": "<img src=\"images/Tomate .jpg\" /><br />"
+            }
+        }
+    ]
+}
