@@ -5,7 +5,10 @@
 
 @layer base {
   .hamburger {
-    all: unset;  /*Evita que Tailwind lo sobrescriba */
+    /* all: unset;  Evita que Tailwind lo sobrescriba */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -86,7 +89,7 @@ body {
 }
 
 .bg {
-  background-color: #17505e;
+  background-color: #b2e3f0;
 }
 .multi-repeating-linear {
   background:
