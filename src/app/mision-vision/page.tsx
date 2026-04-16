@@ -52,7 +52,7 @@ export default function VisionMision(){
            <div className="grid grid-rows-[50px-1fr-20px] font-sans items-center justify-items-center min-h-50 px-4 py-1 gap-16">
              {/*Pasamos estados al header */}
 
-             <Header isActive ={isActive} setIsActive={setIsActive}/>
+             <Header  row_span="" isActive ={isActive} setIsActive={setIsActive}/>
              <aside className={`${isActive ? 'lg:absolute lg:right-0 mr-4' : 'hidden'} top-0 w-full min-h-full bg-white z-30 bg-white lg:top-[8rem] lg:h-[calc(130vh-8rem)] lg:-mt-6 lg:w-70 rounded-md`}>
                      <SidePanel 
                      isActive={isActive} setIsActive={setIsActive}
