@@ -93,20 +93,6 @@ export default function MapPage() {
 
             ))}
 
-
-          {/* <button
-            className="m-2 bg-[var(--dorado)] rounded container"
-            onClick={() => router.push("/Map/1")}
-          >
-            Ruta 1
-          </button>
-
-          <button
-            className="m-2 bg-[var(--dorado)] rounded container"
-            onClick={() => router.push("/Map/2")}
-          >
-            Ruta 2
-          </button> */}
         </div>
       </main>
 

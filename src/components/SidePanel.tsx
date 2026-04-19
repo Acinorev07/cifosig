@@ -4,7 +4,7 @@
 
 import Link from 'next/link';
 // import HamburgerIcon from '@/app/ui/HamburguerIcon';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 
 type SidePanelProps= {
   isActive: boolean;
@@ -15,16 +15,16 @@ export default function SidePanel(
     {isActive, setIsActive}:SidePanelProps
 ) {
  
+  const [panelNav, setPanelNav] = useState<any[]>([]);
 
-  const sections = [
-
-    { id: '/', title: 'Inicio' },
-
-    { id: 'seccion', title: 'Quienes somos' },
-    { id: '/mision-vision', title: 'Misión y Visión' },
-    { id: 'seccion4', title: 'Blog' },
-    { id: 'seccion5', title: 'Contáctanos' }
-  ];
+  useEffect(()=>{
+    fetch(`/api/panelNav`)
+       .then(res => res.json())
+       .then(data =>{
+        setPanelNav(data)
+       })
+       .catch(err => console.error(err))
+  },[])
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function SidePanel(
                 
             `}
             >
-            {sections.map((section) => (
+            {panelNav.map((section) => (
                 <Link
                 key={section.id}
                 href={`${section.id}`}

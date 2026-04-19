@@ -1,12 +1,16 @@
 import Button from "./Button"
 import Image from "next/image"
 
+type FooterClass = {
+    row_span: string
+}
+
 export default function Footer(){
 
 
     return (
 
-        <footer className="bg-[var(--forestgreen)] rounded-lg row-start-3 flex gap-[24px] flex-wrap items-center justify-center w-full min-h-full -mt-14 pb-4">
+        <footer className={`bg-[var(--forestgreen)] rounded-lg gap-[24px]  items-center justify-center w-full min-h-full`}>
           
            
             <div className="grid grid-rows-2 object-center ">

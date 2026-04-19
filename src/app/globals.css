@@ -5,7 +5,10 @@
 
 @layer base {
   .hamburger {
-    all: unset;  /*Evita que Tailwind lo sobrescriba */
+    /* all: unset;  Evita que Tailwind lo sobrescriba */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -21,15 +24,62 @@
   --verde6: #A8DFBF;
   --verde7: #d0f1cb;
   --seagreen: seagreen;
-  --forestgreen: rgb(34 139 34 / 60%);
+  --forestgreen: rgb(34 139 34%);
   --azulacero: rgb(70 130 180 / 80%);
   --verdebosqueoscuro: rgb(34 85 34 / 80%);
   --marrónNaranjatierra: rgb(139 69 19 / 60%);
   --dorado: rgb(206, 145, 15);
 
+   /* 🌿 BASE NATURAL (VERDES) */
+  --green-900: #0B3D2E;
+  --green-800: #145A32;
+  --green-700: #1E8449;
+  --green-600: #27AE60;
+  --green-500: #52BE80;
+  --green-400: #7DCEA0;
+  --green-300: #A9DFBF;
+  --green-200: #D4EFDF;
 
+  /* 🌅 ACENTO TIERRA (NARANJAS / MARRONES) */
+  --earth-900: #6E2C00;
+  --earth-800: #873600;
+  --earth-700: #A04000;
+  --earth-600: #CA6F1E;
+  --earth-500: #E67E22;
+  --earth-400: #EB984E;
+  --earth-300: #f5ceac;
 
+  /* 🧪 TECNOLOGÍA / INVESTIGACIÓN (VIOLETAS) */
+  --violet-900: #2E0854;
+  --violet-800: #4A235A;
+  --violet-700: #6C3483;
+  --violet-600: #8E44AD;
+  --violet-500: #A569BD;
+  --violet-400: #ecdaf3;
+
+  /* 🌊 SOPORTE (AZULES PARA SIG / MAPAS) */
+  --blue-700: #2E86C1;
+  --blue-600: #3498DB;
+  --blue-500: #5DADE2;
+  --blue-400: #85C1E9;
+
+  /* ⚪ NEUTROS (MUY IMPORTANTE PARA DISEÑO LIMPIO) */
+  --background: #F4F6F7;
+  --surface: #FFFFFF;
+  --border: #D5D8DC;
+
+  --text-primary: #1C2833;
+  --text-secondary: #566573;
+  --text-light: #85929E;
+
+  /* ✨ COLORES FUNCIONALES */
+  --success: #27AE60;
+  --warning: #F39C12;
+  --danger: #C0392B;
 }
+
+
+
 
 @theme inline {
   --color-background: var(--background);
@@ -58,9 +108,10 @@ box-sizing: inherit;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--violet-400);
+  color: var(--violet-900);
   font-family: Arial, Helvetica, sans-serif;
+  
 }
 
 .multi-repeating-conic {
@@ -86,7 +137,8 @@ body {
 }
 
 .bg {
-  background-color: #17505e;
+  background-color: var(--background);
+  border: 2px solid;
 }
 .multi-repeating-linear {
   background:
