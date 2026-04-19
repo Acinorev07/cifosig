@@ -2,6 +2,7 @@
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Image from "next/image";
 
 import Header from "@/components/Header";
 import "./globals.css";
@@ -32,9 +33,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={ `${geistSans.variable} ${geistMono.variable} bg antialiased min-h-body w-full p-4 items-center`}
+        className={ `${geistSans.variable} ${geistMono.variable} bg antialiased items-center`}
       >
-
         
          {children}
         

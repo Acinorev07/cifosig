@@ -13,7 +13,7 @@ export default function Header({row_span,isActive, setIsActive}:HeaderProps){
     return(
 
 
-    <header className={`bg-[var(--forestgreen)] row-start-1 text-center p-4 rounded-lg  w-full `}>
+    <header className={`bg-[var(--green-400)] row-start-1 text-center p-4 rounded-lg  w-full `}>
             
              <div className="flex justify-between">
               <Image

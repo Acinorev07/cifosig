@@ -9,7 +9,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import CardRutas from "./Map/components/CardRutas";
 import Link from 'next/link';
-
+import { getImageProps} from 'next/image'
+import CardIntegrantes from "@/components/CardIntegrantes";
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
   const [isActive, setIsActive] = useState(false);
   const [panelNav, setPanelNav] = useState<any[]>([]);
   const [rutas, setRutas] = useState<any[]>([]);
+  const [integrantes, setIntegrantes] = useState<any[]>([])
 
   useEffect(()=>{
       fetch(`/api/panelNav`)
@@ -38,19 +40,33 @@ export default function Home() {
        .catch( err => console.error(err))
   },[])
 
-  // const backgroundImage = getBackgroundImage(srcSet)
-  const style = { 
-    // backgroundImage, 
+   useEffect(()=>{
 
-    backgroundSize: 'cover', // Esto es crucial
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    minHeight: '100vh',
-    width: '100%'
-  }
+      fetch(`/api/integrantes`)
+        .then(res=>res.json())
+        .then(data => {
+          setIntegrantes(data)
+        })
+        .catch( err => console.error(err))
+      },[])
+
+  
 
   return (
-    <div className="grid grid-rows-[50px_1fr_160px] lg:grid-rows-[60px_60px_1fr_160px] font-sans items-center min-h-body px-2 py-4 gap-2">
+    <>
+    <div className="fixed inset-0 -z-10 h-screen w-body">
+        <Image
+          src="/integrantes_lg.jpeg"
+          alt="Integrantes del semillero CIFOSIG"
+          width={2048}
+          height={1364}
+          className="w-full h-[400px] lg:h-[600px] object-cover"
+        />
+
+        <div className="absolute inset-0 bg-black/20"></div>
+       
+    </div>
+    <div className="grid grid-rows-[50px_1fr_160px] lg:grid-rows-[60px_60px_1fr_160px] font-sans items-center min-h-screen w-body ">
    
 
       <Header row_span="row-start-1" isActive ={isActive} setIsActive={setIsActive}/>
@@ -60,7 +76,7 @@ export default function Home() {
         isActive={isActive} setIsActive={setIsActive}
         />
       </aside>
-      <aside className={`hidden lg:flex lg:row-start-2 items-center border-2  w-full`}>
+      <aside className={`hidden lg:flex lg:row-start-2 items-center w-full bg-[var(--violet-400)]`}>
         {panelNav.map((section) => (
                 <Link
                 key={section.id}
@@ -74,12 +90,12 @@ export default function Home() {
       </aside>
       
       <main 
-        className=" flex-col gap-3 lg:row-start-3 items-center items-start"
-        style={style}
+        className=" flex-col lg:row-start-3 items-center items-start"
+        // style={style}
       >
         {/* Componente 4 */}
 
-        <div className="flex flex-col place-content-center items-center bg-[var(--azulacero)] rounded-lg lg:bg-opacity-50 mx-2 my-4 min-h-screen">
+        <div className="flex flex-col place-content-center items-center bg-opacity-50 min-h-20 lg:min-h-130">
           {/* <div className="flex flex-col justify-center">       */}
                <Image
                 src="/logo_semillero.jpeg"
@@ -88,7 +104,7 @@ export default function Home() {
                 height={200}
                 className="rounded-full float-left m-2"
                 />
-                 <p className="text-center text-2xl lg:text-4xl font-bold font-serif m-2 text-(--verde1) ">
+                 <p className="text-center text-2xl lg:text-4xl font-bold font-serif m-2 text-(--violet-400) ">
                     Semillero de investigación en Ciencias Forestales y Sistemas de Información Geográfica <strong><em>-SIFOSIG-</em></strong>
                  </p>  
 
@@ -96,7 +112,7 @@ export default function Home() {
         </div>
 
         {/* Componente 5 */}
-        <div className="flex flex-col place-content-center items-center bg-[var(--azulacero)] bg-opacity-50 rounded-lg mx-2 my-4 min-h-screen gap-4">
+        <div className="flex flex-col place-content-center items-center bg-[var(--earth-300)] bg-opacity-50 min-h-screen gap-4">
       
                <h2 className="text-2xl text-dark-green font-bold">RUTAS</h2>
               
@@ -111,7 +127,7 @@ export default function Home() {
                  
                 </Button> */}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
           
                     {
                       rutas.map((ruta)=>(
@@ -131,7 +147,7 @@ export default function Home() {
         </div>
         {/* Componente 7 */}
 
-        <div className="flex flex-col place-content-center items-center min-h-screen col-span-3 lg:col-span-2 bg-[var(--azulacero)] rounded-lg lg:bg-opacity-50   mx-2 my-4  ">
+        <div className="flex flex-col place-content-center items-center min-h-screen col-span-3 lg:col-span-2 bg-[var(--green-200)] lg:bg-opacity-50 ">
 
            <div className="flex justify-center">
              <h2 className="text-2xl font-bold p-2">
@@ -140,14 +156,6 @@ export default function Home() {
             </div>
           
           <div className="flex-wrap lg:flex-col object-left p-4">
-
-             <Image
-              src="/integrantes.jpeg"
-              alt ="Integrantes del semilleros CIFOSIG"
-              width={250}
-              height={250}
-              className="rounded-full lg:float-left m-2"
-            />
 
             <p className="font-bold font-serif m-2">
   
@@ -170,11 +178,32 @@ export default function Home() {
             </p>
 
           </div>
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+          
+            {
+              integrantes.slice(0, 4).map((integrante)=>(
+                <CardIntegrantes 
+                  key = {integrante.id}
+                  id = {integrante.id}
+                  nombre = {integrante.nombre}
+                  apellido={integrante.apellido}
+                  edad={integrante.edad}
+                  sexo={integrante.sexo}
+                  link = {integrante.link}
+                  rol={integrante.rol}
+                  image = {integrante.imagen}
+                />
+
+              ))}
+
+          </div>
         </div>
       </main>
 
       <Footer/>
       
     </div>
+
+    </>
   );
 }

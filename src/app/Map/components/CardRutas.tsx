@@ -21,7 +21,7 @@ const CardRutas= ({id, name, image}:Props)=>{
             transition-all duration-200 
             hover:scale-105 hover:shadow-lg
             active:scale-95 active:shadow-md
-            cursor-pointer
+            cursor-pointer bg-[var(--green-200)]
             ">
         
         <div className="w-full h-[140px] relative">
@@ -29,7 +29,7 @@ const CardRutas= ({id, name, image}:Props)=>{
             src={image}
             alt={name}
             fill
-            className="object-cover rounded"
+            className="object-contain rounded"
             />
         </div>
 
