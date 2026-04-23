@@ -18,7 +18,7 @@ export const integrantes = [
         edad:"34",
         sexo:"Mujer",
         rol:"Docente",
-        imagen:"/members/Docente1.jpeg",
+        imagen:"/members/docente1.jpeg",
         link:""
      },
      {
@@ -119,6 +119,16 @@ export const integrantes = [
         sexo:"Hombre",
         rol:"Estudiante",
         imagen:"/members/Integrante8.jpeg",
+        link:""
+     },
+      {
+        id:"13",
+        nombre:"Integrante13",
+        apellido:"NaN",
+        edad:"22",
+        sexo:"Mujer",
+        rol:"Docente",
+        imagen:"/members/docente2.jpeg",
         link:""
      }
 
