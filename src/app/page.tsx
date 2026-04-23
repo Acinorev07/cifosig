@@ -105,7 +105,7 @@ export default function Home() {
                 className="rounded-full float-left m-2"
                 />
                  <p className="text-center text-2xl lg:text-4xl font-bold font-serif m-2 text-(--violet-400) ">
-                    Semillero de investigación en Ciencias Forestales y Sistemas de Información Geográfica <strong><em>-SIFOSIG-</em></strong>
+                    Semillero de investigación en Ciencias Forestales y Sistemas de Información Geográfica <strong><em>-CIFOSIG-</em></strong>
                  </p>  
 
           {/* </div> */}
@@ -115,22 +115,11 @@ export default function Home() {
         <div className="flex flex-col place-content-center items-center bg-[var(--earth-300)] bg-opacity-50 min-h-screen gap-4">
       
                <h2 className="text-2xl text-dark-green font-bold">RUTAS</h2>
-              
-                {/* <Button color="green" href="/Map">
-                    <Image
-                        src="/mapa_malaga_leaflet.png"
-                        alt ="Integrantes del semilleros CIFOSIG"
-                        width={150}
-                        height={150}
-                        className="rounded-lg transition-transform duration-300 hover:scale-130"
-                        />
-                 
-                </Button> */}
 
                 <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
           
                     {
-                      rutas.map((ruta)=>(
+                      rutas.slice(0, 4).map((ruta)=>(
                         
                         <CardRutas 
                           key = {ruta.id}
@@ -141,6 +130,11 @@ export default function Home() {
                         />
 
                       ))}
+
+                </div>
+                <div className="p-4">
+                 
+                   <Link href="/Map">Todas las rutas...</Link>
 
                 </div>
             
@@ -195,6 +189,11 @@ export default function Home() {
                 />
 
               ))}
+   
+          </div>
+          <div className="p-4">
+                 
+                 <Link href="/Members">Todos los miembros...</Link>
 
           </div>
         </div>

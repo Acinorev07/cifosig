@@ -7,7 +7,7 @@ export const integrantes = [
         edad:"20",
         sexo:"Hombre",
         rol:"Estudiante",
-        imagen:"/usuario.png",
+        imagen:"/members/Integrante1.jpeg",
         link:""
 
      },
@@ -17,8 +17,8 @@ export const integrantes = [
         apellido:"NaN",
         edad:"34",
         sexo:"Mujer",
-        rol:"Maestra",
-        imagen:"/usuario.png",
+        rol:"Docente",
+        imagen:"/members/Docente1.jpeg",
         link:""
      },
      {
@@ -28,7 +28,7 @@ export const integrantes = [
         edad:"23",
         sexo:"Mujer",
         rol:"Estudiante",
-        imagen:"/usuario.png",
+        imagen:"/members/Integrante2.jpeg",
         link:""
      },
      {
@@ -38,7 +38,7 @@ export const integrantes = [
         edad:"24",
         sexo:"Hombre",
         rol:"Estudiante",
-        imagen:"/usuario.png",
+        imagen:"/members/Integrante4.jpeg",
         link:""
      },
      {
@@ -48,7 +48,7 @@ export const integrantes = [
         edad:"40",
         sexo:"Mujer",
         rol:"Maestra",
-        imagen:"",
+        imagen:"/members/Integrante3.jpeg",
         link:""
      },
       {
@@ -58,7 +58,68 @@ export const integrantes = [
         edad:"22",
         sexo:"Mujer",
         rol:"Estudiante",
-        imagen:"",
+        imagen:"/members/Integrante5.jpeg",
+        link:""
+     },
+      {
+        id:"7",
+        nombre:"Integrante7",
+        apellido:"NaN",
+        edad:"22",
+        sexo:"Mujer",
+        rol:"Estudiante",
+        imagen:"/members/Integrante6.jpeg",
+        link:""
+     },
+      {
+        id:"8",
+        nombre:"Integrante8",
+        apellido:"NaN",
+        edad:"22",
+        sexo:"Hombre",
+        rol:"Estudiante",
+        imagen:"/members/Integrante7.jpeg",
+        link:""
+     },
+      {
+        id:"9",
+        nombre:"Integrante9",
+        apellido:"NaN",
+        edad:"22",
+        sexo:"Mujer",
+        rol:"Estudiante",
+        imagen:"/members/Integrante9.jpeg",
+        link:""
+     },
+     {
+        id:"10",
+        nombre:"Integrante10",
+        apellido:"NaN",
+        edad:"22",
+        sexo:"Mujer",
+        rol:"Estudiante",
+        imagen:"/members/Integrante10.jpeg",
+        link:""
+     },
+     {
+        id:"11",
+        nombre:"Integrante11",
+        apellido:"NaN",
+        edad:"22",
+        sexo:"Mujer",
+        rol:"Estudiante",
+        imagen:"/members/Integrante11.jpeg",
+        link:""
+     },
+     {
+        id:"12",
+        nombre:"Integrante12",
+        apellido:"NaN",
+        edad:"22",
+        sexo:"Hombre",
+        rol:"Estudiante",
+        imagen:"/members/Integrante8.jpeg",
         link:""
      }
+
 ]
