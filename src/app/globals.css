@@ -76,6 +76,12 @@
   --success: #27AE60;
   --warning: #F39C12;
   --danger: #C0392B;
+
+  --forest-dark: #1B4332;   /* Verde Pino (Principal) */
+  --forest-moss: #40916C;   /* Verde Musgo (Secundario / Interacciones) */
+  --forest-cream: #F4F1DE;  /* Crema Arena (Fondo Base Web) */
+  --forest-bark: #3D2612;   /* Marrón Corteza (Texto Base) */
+  --forest-autumn: #D95D39; /* Naranja Otoñal (Acentuación / CTA) */
 }
 
 

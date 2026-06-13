@@ -11,6 +11,8 @@ import CardRutas from "./Map/components/CardRutas";
 import Link from 'next/link';
 import { getImageProps} from 'next/image'
 import CardIntegrantes from "@/components/CardIntegrantes";
+import smartVideo from "@/components/video_inteligente";
+
 
 
 export default function Home() {
@@ -19,6 +21,8 @@ export default function Home() {
   const [panelNav, setPanelNav] = useState<any[]>([]);
   const [rutas, setRutas] = useState<any[]>([]);
   const [integrantes, setIntegrantes] = useState<any[]>([])
+  const [image, setImage] = useState("");
+
 
   useEffect(()=>{
       fetch(`/api/panelNav`)
@@ -50,7 +54,23 @@ export default function Home() {
         .catch( err => console.error(err))
       },[])
 
+       
+   useEffect(() => {
+      smartVideo();
+    }, []);
   
+
+    useEffect(() => {
+
+        fetch("/api/planet?width=512")
+            .then(res => res.blob())
+            .then(blob => {
+                console.log("data-sentinel: ",blob)
+                const imageUrl = URL.createObjectURL(blob)
+                setImage(imageUrl);
+            });
+
+    }, []);
 
   return (
     <>
@@ -76,13 +96,13 @@ export default function Home() {
         isActive={isActive} setIsActive={setIsActive}
         />
       </aside>
-      <aside className={`hidden lg:flex lg:row-start-2 items-center w-full bg-[var(--violet-400)]`}>
+      <aside className={`hidden lg:flex lg:row-start-2 items-center w-full bg-[var(--forest-dark)] text-white`}>
         {panelNav.map((section) => (
                 <Link
                 key={section.id}
                 href={`${section.id}`}
                 onClick={() => setIsActive(false)}
-                className="flex-row p-4 text-center text-black rounded-md hover:bg-emerald-900 hover:text-emerald-200 transition"
+                className="flex-row p-4 text-center text-white hover:bg-[var(--forest-moss)] transition"
                 >
                 {section.title}
                 </Link>
@@ -104,17 +124,17 @@ export default function Home() {
                 height={200}
                 className="rounded-full float-left m-2"
                 />
-                 <p className="text-center text-2xl lg:text-4xl font-bold font-serif m-2 text-(--violet-400) ">
-                    Semillero de investigación en Ciencias Forestales y Sistemas de Información Geográfica <strong><em>-CIFOSIG-</em></strong>
+                 <p className="text-center text-2xl lg:text-4xl font-bold font-serif m-2 text-white ">
+                    Semillero de investigación en Ciencias Forestales y Sistemas de Información Geográfica <strong className="text-[var(--forest-autumn)]"><em>-CIFOSIG-</em></strong>
                  </p>  
 
           {/* </div> */}
         </div>
 
         {/* Componente 5 */}
-        <div className="flex flex-col place-content-center items-center bg-[var(--earth-300)] bg-opacity-50 min-h-screen gap-4">
+        <div className="flex flex-col place-content-center items-center bg-[var(--forest-cream)] bg-opacity-50 min-h-screen gap-4">
       
-               <h2 className="text-2xl text-dark-green font-bold">RUTAS</h2>
+               <h2 className="text-2xl text-[var(--forest-dark)] font-bold tracking-wide">RUTAS</h2>
 
                 <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
           
@@ -134,24 +154,24 @@ export default function Home() {
                 </div>
                 <div className="p-4">
                  
-                   <Link href="/Map">Todas las rutas...</Link>
+                   <Link href="/Map" className="bg-[var(--forest-autumn)] text-white px-6 py-2 rounded-md font-semibold hover:bg-[#b84a2a] transition shadow-md">Todas las rutas...</Link>
 
                 </div>
             
         </div>
         {/* Componente 7 */}
 
-        <div className="flex flex-col place-content-center items-center min-h-screen col-span-3 lg:col-span-2 bg-[var(--green-200)] lg:bg-opacity-50 ">
+        <div className="flex flex-col place-content-center items-center min-h-screen col-span-3 lg:col-span-2 bg-white/80 ">
 
            <div className="flex justify-center">
-             <h2 className="text-2xl font-bold p-2">
+             <h2 className="text-2xl font-bold p-2 text-[var(--forest-dark)]">
                Integrantes del semillero SIFOSIG
              </h2>
             </div>
           
           <div className="flex-wrap lg:flex-col object-left p-4">
 
-            <p className="font-bold font-serif m-2">
+            <p className="font-serif m-2 text-[var(--forest-bark)] max-w-4xl">
   
               {/* 📱 TEXTO PARA PANTALLAS PEQUEÑAS */}
               <span className="block lg:hidden text-base text-center">
@@ -193,9 +213,34 @@ export default function Home() {
           </div>
           <div className="p-4">
                  
-                 <Link href="/Members">Todos los miembros...</Link>
+                 <Link href="/Members" className="text-[var(--forest-moss)] font-bold hover:underline">Todos los miembros...</Link>
 
           </div>
+        </div>
+        <div className="relative w-full h-screen overflow-hidden bg-[var(--forest-dark)] p-4">
+           
+          <video
+            muted
+            loop
+            playsInline
+            controls
+            data-smart-video
+            className="w-full h-full object-fit"
+          >
+            <source src="/videos/video1.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="relative w-full h-screen overflow-hidden bg-[var(--forest-dark)] p-4">
+           
+          {
+                image &&
+                <img
+                    src={image}
+                    alt="Imagen satelital"
+                    className="rounded-lg shadow-lg"
+                />
+            }
+
         </div>
       </main>
 
