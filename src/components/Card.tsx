@@ -12,6 +12,7 @@ const Card = ({ children } :{children:React.ReactNode})=>{
         opacity: "0.5",
         borderBottomRightRadius: "50%"
 
+         
         
         
 
