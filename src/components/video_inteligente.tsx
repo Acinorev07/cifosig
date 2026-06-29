@@ -6,12 +6,18 @@ const smartVideo = () => {
 
         entries.forEach(entry => {
 
-            const video = entry.target as HTMLVideoElement;
+           const video = entry.target as HTMLVideoElement;
 
-            if(entry.isIntersecting){
-                video.play();
-            }else{
+            if (entry.isIntersecting) {
+
+                video.play().catch(err => {
+                    console.log(err);
+                });
+
+            } else {
+
                 video.pause();
+
             }
 
         });

@@ -234,10 +234,13 @@ export default function Home() {
            
           {
                 image &&
-                <img
+                <Image
                     src={image}
                     alt="Imagen satelital"
-                    className="rounded-lg shadow-lg"
+                    // width={250}
+                    // height={250}
+                    fill
+                    className="object-contain rounded"
                 />
             }
 
