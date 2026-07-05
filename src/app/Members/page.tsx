@@ -202,7 +202,7 @@ export default function MembersPage(){
                         </Link>
                     ))}
             </aside>
-            <aside className="bg-white h-full w-full flex flex-row justify-end items-center">
+            {/* <aside className="bg-white h-full w-full flex flex-row justify-end items-center">
                 <button
                     className="p-2"
                     onClick={()=>{
@@ -211,7 +211,7 @@ export default function MembersPage(){
                     >
                     Agregar
                 </button>
-            </aside>
+            </aside> */}
 
             <main 
                 className=" flex-col lg:row-start-3 items-center items-start"
@@ -240,6 +240,21 @@ export default function MembersPage(){
 
                     <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
                         {listaIntegrantes}
+                    </div>
+
+                    <div className="flex place-content-center bg-[var(--green-200)] min-w-screen">
+                        <button
+                            className="p-2 bg-[var(--violet-400)] border rounded-2xl shadow 
+                                        transition-all duration-200 
+                                        hover:scale-105 hover:shadow-lg
+                                        active:scale-95 active:shadow-md
+                                        cursor-pointer  "
+                            onClick={()=>{
+                                setFormActive(true)
+                            }}
+                            >
+                            Agregar
+                        </button>
                     </div>
 
                 </div>
