@@ -25,7 +25,7 @@ const CardIntegrantes= ({id, nombre, apellido ,edad, sexo, rol, link,image, }:Pr
             transition-all duration-200 
             hover:scale-105 hover:shadow-lg
             active:scale-95 active:shadow-md
-            cursor-pointer bg-[var(--earth-300)]
+            cursor-pointer bg-[var(--violet-400)]
             ">
         
         <div className="w-full h-[140px] relative">
