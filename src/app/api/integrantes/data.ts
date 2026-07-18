@@ -1,7 +1,7 @@
 export const integrantes = [
 
      {
-        id:"1",
+        id:"0",
         nombre:"Integrante1",
         apellido:"NaN",
         edad:"20",
@@ -12,7 +12,7 @@ export const integrantes = [
 
      },
      {
-        id:"2",
+        id:"1",
         nombre:"Integrante2",
         apellido:"NaN",
         edad:34,
@@ -22,7 +22,7 @@ export const integrantes = [
         link:""
      },
      {
-        id:"3",
+        id:"2",
         nombre:"Integrante3",
         apellido:"NaN",
         edad:23,
@@ -32,7 +32,7 @@ export const integrantes = [
         link:""
      },
      {
-        id:"4",
+        id:"3",
         nombre:"Integrante4",
         apellido:"NaN",
         edad:24,
@@ -42,7 +42,7 @@ export const integrantes = [
         link:""
      },
      {
-        id:"5",
+        id:"4",
         nombre:"Integrante5",
         apellido:"NaN",
         edad:40,
@@ -52,7 +52,7 @@ export const integrantes = [
         link:""
      },
       {
-        id:"6",
+        id:"5",
         nombre:"Integrante6",
         apellido:"NaN",
         edad:22,
@@ -62,7 +62,7 @@ export const integrantes = [
         link:""
      },
       {
-        id:"7",
+        id:"6",
         nombre:"Integrante7",
         apellido:"NaN",
         edad:22,
@@ -72,7 +72,7 @@ export const integrantes = [
         link:""
      },
       {
-        id:"8",
+        id:"7",
         nombre:"Integrante8",
         apellido:"NaN",
         edad:22,
@@ -82,7 +82,7 @@ export const integrantes = [
         link:""
      },
       {
-        id:"9",
+        id:"8",
         nombre:"Integrante9",
         apellido:"NaN",
         edad:22,
@@ -92,7 +92,7 @@ export const integrantes = [
         link:""
      },
      {
-        id:"10",
+        id:"9",
         nombre:"Integrante10",
         apellido:"NaN",
         edad:22,
@@ -102,7 +102,7 @@ export const integrantes = [
         link:""
      },
      {
-        id:"11",
+        id:"10",
         nombre:"Integrante11",
         apellido:"NaN",
         edad:22,
@@ -112,7 +112,7 @@ export const integrantes = [
         link:""
      },
      {
-        id:"12",
+        id:"11",
         nombre:"Integrante12",
         apellido:"NaN",
         edad:22,
@@ -122,7 +122,7 @@ export const integrantes = [
         link:""
      },
       {
-        id:"13",
+        id:"12",
         nombre:"Integrante13",
         apellido:"NaN",
         edad:22,

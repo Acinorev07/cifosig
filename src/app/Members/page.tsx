@@ -12,6 +12,9 @@ import { NewMember } from "./components/Form";
 
 import { useState, useEffect } from 'react';
 
+export interface Member extends NewMember{
+    id:string;
+}
 export default function MembersPage(){
 
     const [isActive, setIsActive] = useState(false)
@@ -20,6 +23,8 @@ export default function MembersPage(){
     const [formActive, setFormActive] = useState(false)
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [editingMember, setEditingMember] = useState<Member | null>(null)
+    const [deleteMember, setDeleteMember] = useState<Member | null>(null)
 
 
     useEffect(()=>{
@@ -57,30 +62,7 @@ export default function MembersPage(){
         };
 
         fetchIntegrantes()
-    //   fetch(`/api/integrantes`)
-    //     .then(res=>res.json())
-    //     .then(data => {
-    //       setIntegrantes(data)
-    //     })
-    //     .catch( err => console.error(err))
     },[])
-
-
-    // Agregar integrantes nuevos a la lista
-    // const addMembers = (
-    //     member:NewMember
-    // )=>{
-    //     const newMember = { id: `member-${nanoid()}`,
-    //       ...member
-    //     }
-        
-    //     // Agregar un integrante nuevo a la lista
-    //     setIntegrantes([...integrantes, newMember])
-
-    //     console.log(setIntegrantes)
-    //     alert(member.nombre)
-        
-    // }
 
     const addMembers = async (
         member:NewMember
@@ -88,7 +70,6 @@ export default function MembersPage(){
         try{
 
         
-
             // Validación adicional en el frontend
         if (!member.nombre.trim()) {
           setError('El nombre del integrante es requerido');
@@ -152,6 +133,109 @@ export default function MembersPage(){
         }
     }
 
+    const updateMember = async(
+        id:string,
+        member:NewMember
+    ): Promise<boolean> =>{
+        try{
+
+                // Validación adicional en el frontend
+                if (!member.nombre.trim()) {
+                setError('El nombre del integrante es requerido');
+                return false;
+                }
+                if (!member.apellido.trim()) {
+                setError('El apellido del integrante es requerido');
+                return false;
+                }
+                if (!member.edad) {
+                setError('La edad del integrante es requerido');
+                return false;
+                }
+                if (!member.sexo.trim()) {
+                setError('El genero del integrante es requerido');
+                return false;
+                }
+                if (!member.rol.trim()) {
+                setError('El rol del integrante es requerido');
+                return false;
+                }
+
+                console.log( `Estamos dentro de updateMeber`)
+                
+                console.log(`Esta es la variable response id ${id}`)
+                console.log(`Esta es la variable response nombre ${member.nombre}`)
+
+                const response = await fetch( `/api/integrantes/${id}`,{
+
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type':'application/json',
+                    },
+                    body:JSON.stringify({
+                        nombre: member.nombre.trim(),
+                        apellido:member.apellido.trim(),
+                        edad:member.edad,
+                        sexo: member.sexo.trim(),
+                        link: member.link.trim(),
+                        rol: member.rol.trim(),
+                        imagen: member.imagen.trim() || "/usuario.png"
+                    }),
+                });
+
+                
+                const resp = await response.json()
+
+                console.log("resp:",resp)
+
+                setIntegrantes(prev=>
+                    prev.map(m=>
+                        m.id === id ? {...m, ...resp} : m
+                    )
+                )
+                return true;
+
+
+        }catch(error){
+            console.log(error)
+            return false;
+        }
+    }
+
+
+    const DeleteMember = async(
+        id:string
+    ):Promise<boolean>=>{
+
+
+        try{
+
+
+            console.log("Estamos dentro de la funcion DeleteMember")
+
+            const response = await fetch(`/api/integrantes/${id}`,{
+                method : 'DELETE',
+                headers: {
+                    'Content-Type':'application/json'
+                }
+            })
+
+
+            const resp = await response.json()
+
+            console.log("resp:",resp)
+
+            setIntegrantes(resp)
+            return true
+
+
+        }catch(error){
+
+            console.log("Error dentro de Delete Member", error)
+            return true
+
+        }
+    }
 
 
     //Tarjetas con las listas de los integrantes
@@ -166,12 +250,35 @@ export default function MembersPage(){
                                   link = {integrante.link}
                                   rol={integrante.rol}
                                   image = {integrante.imagen}
+                                  onEdit={
+                                    (id)=>{
+                                        const member = integrantes.find(i => i.id === id);
+
+                                        if(member){
+                                            setEditingMember(member)
+                                            setFormActive(true)
+                                        }
+                                    }
+                                  }
+                                  onDelete={
+                                    (id)=>{
+                                        
+                                            // setDeleteMember(member)
+
+
+                                            DeleteMember(id.toString());
+                                        
+
+                                    }
+                                  }
                                 />
     ));
 
+
+
         // Mostrar estados de carga/error
     if (isLoading) {
-        return <div className="loading">Cargando tareas...</div>;
+        return <div className="loading">Cargando integrantes...</div>;
     }
 
     if (error) {
@@ -187,7 +294,7 @@ export default function MembersPage(){
 
             <aside className={`${isActive ? 'absolute right-0 mr-4' : 'hidden'} lg:hidden top-0 w-full bg-white z-50 rounded-md`}>
                 <SidePanel 
-                isActive={isActive} setIsActive={setIsActive}
+                     isActive={isActive} setIsActive={setIsActive}
                 />
             </aside>
             <aside className={`hidden lg:flex lg:row-start-2 items-center w-full bg-[var(--violet-400)]`}>
@@ -202,16 +309,6 @@ export default function MembersPage(){
                         </Link>
                     ))}
             </aside>
-            {/* <aside className="bg-white h-full w-full flex flex-row justify-end items-center">
-                <button
-                    className="p-2"
-                    onClick={()=>{
-                         setFormActive(true)
-                    }}
-                    >
-                    Agregar
-                </button>
-            </aside> */}
 
             <main 
                 className=" flex-col lg:row-start-3 items-center items-start"
@@ -223,8 +320,10 @@ export default function MembersPage(){
                 <div className="flex justify-center items-center min-h-screen">
                     <Form
                         addMembers={addMembers}
+                        updateMember={updateMember}
                         formActive={formActive}
                         setFormActive={setFormActive}
+                        member = {editingMember}
                     />
                 </div>
 
@@ -250,6 +349,7 @@ export default function MembersPage(){
                                         active:scale-95 active:shadow-md
                                         cursor-pointer  "
                             onClick={()=>{
+                                setEditingMember(null);
                                 setFormActive(true)
                             }}
                             >
@@ -268,10 +368,4 @@ export default function MembersPage(){
         </div>
 
     )
-
-    
-
-
-
-   
 } 

@@ -194,21 +194,22 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
           
-            {
+            {/* {
               integrantes.slice(0, 4).map((integrante)=>(
-                <CardIntegrantes 
-                  key = {integrante.id}
-                  id = {integrante.id}
-                  nombre = {integrante.nombre}
-                  apellido={integrante.apellido}
-                  edad={integrante.edad}
-                  sexo={integrante.sexo}
-                  link = {integrante.link}
-                  rol={integrante.rol}
-                  image = {integrante.imagen}
-                />
+                // <CardIntegrantes 
+                //   key = {integrante.id}
+                //   id = {integrante.id}
+                //   nombre = {integrante.nombre}
+                //   apellido={integrante.apellido}
+                //   edad={integrante.edad}
+                //   sexo={integrante.sexo}
+                //   link = {integrante.link}
+                //   rol={integrante.rol}
+                //   image = {integrante.imagen}
+                // />
 
-              ))}
+              )
+              )} */}
    
           </div>
           <div className="p-4">
