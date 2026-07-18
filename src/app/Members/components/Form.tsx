@@ -1,7 +1,7 @@
 'use client'
 
-import { FormEvent, ChangeEvent } from 'react';
-import { useState } from 'react';
+import { FormEvent, ChangeEvent, useEffect ,useState} from 'react';
+
 
 export interface NewMember {
     nombre: string;
@@ -13,13 +13,22 @@ export interface NewMember {
     link: string;
 }
 
-interface FormProps {
-   addMembers: (member:NewMember) => Promise<boolean>; // Función que recibe un string y no devuelve nada
-   formActive: boolean
-   setFormActive: React.Dispatch<React.SetStateAction<boolean>>
+export interface Member extends NewMember{
+    id:string;
 }
 
-const Form = ({addMembers, formActive, setFormActive}:FormProps)=>{
+interface FormProps {
+   addMembers: (member:NewMember) => Promise<boolean>; // Función que recibe un string y no devuelve nada
+   updateMember:(
+     id:string,
+     member:NewMember
+   )=>Promise<boolean>
+   formActive: boolean
+   setFormActive: React.Dispatch<React.SetStateAction<boolean>>
+   member?: Member | null;
+}
+
+const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormProps)=>{
     const [nombre, setNombre] = useState("");
     const [apellido, setApellido] = useState("");
     const [edad, setEdad] = useState("");
@@ -28,31 +37,84 @@ const Form = ({addMembers, formActive, setFormActive}:FormProps)=>{
     const [imagen, setImagen] = useState("");
     const [link, setLink] = useState("");
 
+    useEffect(() => {
+
+        if(member){
+
+            setNombre(member.nombre);
+            setApellido(member.apellido);
+            setEdad(String(member.edad));
+            setSexo(member.sexo);
+            setRol(member.rol);
+            setImagen(member.imagen);
+            setLink(member.link);
+
+        }else{
+
+            setNombre("");
+            setApellido("");
+            setEdad("");
+            setSexo("");
+            setRol("");
+            setImagen("");
+            setLink("");
+
+        }
+
+    }, [member]);
+
 
     const handleSubmit = async (event:FormEvent<HTMLFormElement>)=>{
             
         event.preventDefault();
 
+
+        if(member){
+            
+            console.log("miembro dentro de Form.tsx: ", member)
+            const success = await updateMember(member.id,{
+                nombre,
+                apellido,
+                edad: Number(edad),
+                sexo,
+                rol,
+                imagen,
+                link,
+            });
+
+            if(success){
+
+                console.log(success)
+            }
+
+        }else{
+
+            const success = await addMembers({
+                nombre,
+                apellido,
+                edad: Number(edad),
+                sexo,
+                rol,
+                imagen,
+                link,
+            });
+
+            if(success){
+
+                setNombre("");
+                setApellido("");
+                setEdad("");
+                setSexo("");
+                setRol("");
+                setImagen("");
+                setLink("");
+
+                setFormActive(false);
+            }
+
+        }
         // alert("Hello.world");
-        addMembers({
-            nombre,
-            apellido,
-            edad: Number(edad),
-            sexo,
-            rol,
-            imagen,
-            link,
-        })
-
-        setNombre("")
-        setApellido("")
-        setSexo("")
-        setEdad("")
-        setRol("")
-        setImagen("")
-        setLink("")
-
-        setFormActive(false)
+        
     }
 
     const handleChangeImagen = (event: ChangeEvent<HTMLInputElement>)=>{
@@ -130,6 +192,9 @@ const Form = ({addMembers, formActive, setFormActive}:FormProps)=>{
         // setEmail("")
 
     };
+
+  
+
 
 
 return (
