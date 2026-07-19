@@ -193,6 +193,8 @@ export default function MembersPage(){
                         m.id === id ? {...m, ...resp} : m
                     )
                 )
+
+                setFormActive(false)
                 return true;
 
 
@@ -263,12 +265,8 @@ export default function MembersPage(){
                                   onDelete={
                                     (id)=>{
                                         
-                                            // setDeleteMember(member)
-
-
-                                            DeleteMember(id.toString());
-                                        
-
+                                        // setDeleteMember(member)
+                                        DeleteMember(id.toString());   
                                     }
                                   }
                                 />
