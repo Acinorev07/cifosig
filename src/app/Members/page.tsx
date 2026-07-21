@@ -101,8 +101,8 @@ export default function MembersPage(){
                 'Content-Type':'application/json',
             },
             body:JSON.stringify({
-                id: `member-${nanoid()}`,
-                key:`member-${nanoid()}`,
+                // id: `member-${nanoid()}`,
+                // key:`member-${nanoid()}`,
                 nombre: member.nombre.trim(),
                 apellido:member.apellido.trim(),
                 edad:member.edad,
@@ -165,6 +165,16 @@ export default function MembersPage(){
                 
                 console.log(`Esta es la variable response id ${id}`)
                 console.log(`Esta es la variable response nombre ${member.nombre}`)
+                // console.log({
+                //     nombre: member.nombre,
+                //     apellido: member.apellido,
+                //     edad: member.edad,
+                //     sexo: member.sexo,
+                //     rol: member.rol,
+                //     imagen: member.imagen,
+                //     link: member.link,
+                // });
+
 
                 const response = await fetch( `/api/integrantes/${id}`,{
 
@@ -173,13 +183,13 @@ export default function MembersPage(){
                         'Content-Type':'application/json',
                     },
                     body:JSON.stringify({
-                        nombre: member.nombre.trim(),
-                        apellido:member.apellido.trim(),
+                        nombre: member.nombre?.trim(),
+                        apellido:member.apellido?.trim(),
                         edad:member.edad,
-                        sexo: member.sexo.trim(),
-                        link: member.link.trim(),
-                        rol: member.rol.trim(),
-                        imagen: member.imagen.trim() || "/usuario.png"
+                        sexo: member.sexo?.trim(),
+                        link: member.link?.trim() || "",
+                        rol: member.rol?.trim(),
+                        imagen: member.imagen?.trim() || "/usuario.png"
                     }),
                 });
 
@@ -227,7 +237,11 @@ export default function MembersPage(){
 
             console.log("resp:",resp)
 
-            setIntegrantes(resp)
+            if (resp.success) {
+                setIntegrantes(prev =>
+                    prev.filter(member => member.id !== id)
+                );
+            }
             return true
 
 
@@ -265,7 +279,6 @@ export default function MembersPage(){
                                   onDelete={
                                     (id)=>{
                                         
-                                        // setDeleteMember(member)
                                         DeleteMember(id.toString());   
                                     }
                                   }
@@ -335,9 +348,21 @@ export default function MembersPage(){
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-                        {listaIntegrantes}
-                    </div>
+                     {integrantes.length === 0 ? (
+
+                            <div className="col-span-full flex justify-center py-10">
+                                <p className="text-2xl font-semibold text-gray-600">
+                                    La lista de integrantes está vacía
+                                </p>
+                            </div>
+
+                        ) : (
+
+                             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+                                {listaIntegrantes}
+                             </div>
+
+                    )}
 
                     <div className="flex place-content-center bg-[var(--green-200)] min-w-screen">
                         <button
