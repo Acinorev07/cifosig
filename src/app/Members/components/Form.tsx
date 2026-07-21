@@ -84,7 +84,7 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
 
             if(success){
 
-                console.log(success)
+                console.log("SUCCESS",success)
             }
 
         }else{

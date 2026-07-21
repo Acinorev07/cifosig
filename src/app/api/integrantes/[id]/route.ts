@@ -1,4 +1,6 @@
 import { integrantes } from "../data"
+import {db} from "@/lib/firebase"
+import {doc, updateDoc, deleteDoc, getDoc} from "firebase/firestore"
 import { NextResponse } from "next/server";
 
 
@@ -7,33 +9,64 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
     const { id } = await params;
-
+    
+    
     try{
 
         const body = await request.json()
-      
-        const index = integrantes.findIndex(
-            integrante=> integrante.id === id
-               
-        )
 
-        console.log("index: ",index)
 
-         if(index == -1){
 
-                return Response.json(
-                    {error:`Integrante ${id} no encontrado`},
-                    {status: 404}
-                )
+        console.log("id: ", id)
+        console.log("Body", body)
+
+        if (!id) {
+        return NextResponse.json(
+            { error: "ID is required" },
+            { status: 400 }
+        );
         }
 
-        console.log("Integrante index: ", integrantes[index])
+        const memberRef = doc(db, "integrantes", id);
 
-         integrantes[index] = {
-                ...integrantes[index],
-                ...body
+        console.log("taskRef", memberRef)
+
+        const updateData: Partial<{
+            nombre: string;
+            apellido: string;
+            edad: number;
+            sexo: string;
+            rol: string;
+            imagen: string;
+            link: string;
+        }> = {};
+
+        if(body.nombre !== undefined) updateData.nombre = body.nombre;
+        if(body.apellido !== undefined) updateData.apellido = body.apellido;
+        if(body.edad !== undefined) updateData.edad = body.edad;
+        if(body.sexo !== undefined) updateData.sexo = body.sexo;
+        if(body.link !== undefined) updateData.link = body.link;
+        if(body.rol !== undefined) updateData.rol = body.rol;
+        if(body.imagen !== undefined) updateData.imagen = body.imagen;
+
+        await updateDoc(memberRef, updateData)
+
+        //Obtener y devolver el documento completo y actualizado
+        const updatedDoc = await getDoc(memberRef);
+
+        if(!updatedDoc.exists()){
+            return NextResponse.json(
+                {error:"Integrante no encontrado despues de Actualizar"},
+                {status: 404}
+            )
         }
-         return Response.json(integrantes[index]);
+
+        return NextResponse.json({
+            id: updatedDoc.id,
+            ...updatedDoc.data()
+        },
+        {status:200}
+    )
 
     }catch(error){
               console.error('Error fetching tasks:', error);
@@ -59,38 +92,19 @@ export async function DELETE (
     
     try{
         
-        // console.log("id", id)
-
-        // const body = await request.json()
-
-        // console.log( "Body desde el Delete",body)
-
-        // return Response.json(
-        //     {mensaje:"Retornamos desde el DELETE"}
-        // )
-        const index = integrantes.findIndex(
-            integrante => integrante.id === id
-        );
-
-        console.log("Index DELETE", index)
-
-        if(index === -1){
-            return Response.json(
-                {error:"Integrante no encontrado"},
-                {status:404}
+       if (!id) {
+            return NextResponse.json(
+                { error: "ID is required" },
+                { status: 400 }
             );
         }
 
-        
-        integrantes.splice(index,1)
+        await deleteDoc(doc(db, "integrantes", id));
 
-        console.log("Integrante",integrantes)
-
-        return Response.json(
-            integrantes
-        );
-
-
+        return NextResponse.json({
+            success: true,
+            message: "Integrante eliminado"
+        });
 
     }catch(error){
 

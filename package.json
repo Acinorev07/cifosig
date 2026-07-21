@@ -10,10 +10,11 @@
   },
   "dependencies": {
     "@mapbox/togeojson": "^0.16.2",
+    "firebase": "^12.16.0",
     "hamburgers": "^1.2.1",
     "leaflet": "^1.9.4",
     "nanoid": "^5.1.11",
-    "next": "^16.1.4",
+    "next": "^16.2.10",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-leaflet": "^5.0.0"
@@ -26,7 +27,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.4.7",
+    "eslint-config-next": "^16.2.10",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
