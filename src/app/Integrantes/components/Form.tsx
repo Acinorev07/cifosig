@@ -1,17 +1,7 @@
 'use client'
 
 import { FormEvent, ChangeEvent, useEffect ,useState} from 'react';
-
-
-export interface NewMember {
-    nombre: string;
-    apellido: string;
-    edad: number;
-    sexo: string;
-    rol: string;
-    imagen: string;
-    link: string;
-}
+import { NewMember } from '@/types/InNewMember';
 
 export interface Member extends NewMember{
     id:string;

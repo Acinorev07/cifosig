@@ -4,10 +4,10 @@ import Header from "@/components/Header"
 import Link from 'next/link';
 import SidePanel from "@/components/SidePanel";
 import Footer from "@/components/Footer";
-import CardIntegrantes from "@/components/CardIntegrantes";
+import CardIntegrantes from "@/app/Integrantes/components/CardIntegrantes";
 import { nanoid } from "nanoid"
 import Form from "./components/Form"
-import { NewMember } from "./components/Form";
+import { NewMember } from "@/types/InNewMember";
 
 
 import { useState, useEffect } from 'react';
