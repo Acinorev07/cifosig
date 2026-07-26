@@ -10,7 +10,7 @@ import Header from "@/components/Header";
 import CardRutas from "./Map/components/CardRutas";
 import Link from 'next/link';
 import { getImageProps} from 'next/image'
-import CardIntegrantes from "@/components/CardIntegrantes";
+import CardIntegrantes from "@/app/Integrantes/components/CardIntegrantes";
 import smartVideo from "@/components/video_inteligente";
 
 
@@ -214,7 +214,7 @@ export default function Home() {
           </div>
           <div className="p-4">
                  
-                 <Link href="/Members" className="text-[var(--forest-moss)] font-bold hover:underline">Todos los miembros...</Link>
+                 <Link href="/Integrantes" className="text-[var(--forest-moss)] font-bold hover:underline">Todos los miembros...</Link>
 
           </div>
         </div>

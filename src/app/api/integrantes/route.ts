@@ -1,38 +1,15 @@
 import { Url } from "next/dist/shared/lib/router/router";
-import {integrantes} from "./data";
-import { db } from "@/lib/firebase";
 import { NextResponse } from "next/server";
-import {collection, getDocs, addDoc} from 'firebase/firestore'
 import { error } from "console";
+import { getMembers, addMember } from "@/repositories/integrantes";
+import { NewMember } from "@/types/InNewMember";
 
 
 export async function GET(){
 
     try{
         
-        //Llamamos la base de datos
-        const querySnapshot = await getDocs(collection(db, "integrantes"))
-
-        // console.log(querySnapshot.empty);
-        // console.log(querySnapshot.size);
-        // console.log(querySnapshot.docs);
-
-        //Mapeamos la base de datos
-        const integrantes = querySnapshot.docs.map(doc=>{
-
-            const data = doc.data();
-
-            return {
-                id: doc.id,
-                nombre: data.nombre,
-                apellido: data.apellido,
-                edad: data.edad,
-                sexo: data.sexo,
-                rol: data.rol,
-                imagen: data.imagen,
-                link: data.link
-            }
-        });
+        const integrantes = await getMembers();
 
         return NextResponse.json(integrantes)
 
@@ -46,30 +23,13 @@ export async function GET(){
         )
 
     }
-    // return Response.json(integrantes)
 }
-
-interface newMember {
-    nombre: string
-    apellido: string
-    edad: number 
-    sexo: string
-    rol: string
-    imagen: string
-    link: string
-
-}
-
-//Tipado de producto que se guarda en la memoria
-// interface Member extends newMember {
-//      id: string
-// }
 
 export async function POST(request:Request){
 
     try{
 
-        const member: newMember = await request.json();
+        const member: NewMember = await request.json();
 
         if(!member.nombre || !member.apellido || !member.edad || !member.sexo || !member.rol){
 
@@ -79,26 +39,11 @@ export async function POST(request:Request){
             );
         }
 
-        
-        // const addMember: newMember = {
-        //     // id: `member-${integrantes.length + 1}`,
-        //     nombre: member.nombre,
-        //     apellido: member.apellido,
-        //     edad: member.edad,
-        //     sexo: member.sexo,
-        //     rol: member.rol,
-        //     imagen: member.imagen||"usuario.png",
-        //     link: member.link || ""
-        // }
-        
         //Crear nuevo integrante
-        const docRef = await addDoc(collection(db, "integrantes"),member)
+        const newMember = await addMember(member);
 
         return NextResponse.json(
-            {
-                 id: docRef.id,
-                 ...member
-        },
+           newMember,
         {status:201}
     )
 

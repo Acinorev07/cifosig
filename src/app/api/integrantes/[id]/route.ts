@@ -2,6 +2,8 @@ import { integrantes } from "../data"
 import {db} from "@/lib/firebase"
 import {doc, updateDoc, deleteDoc, getDoc} from "firebase/firestore"
 import { NextResponse } from "next/server";
+import { NewMember } from "@/types/InNewMember";
+import { updateMember, deleteMember } from "@/repositories/integrantes";
 
 
 export async function PUT(
@@ -13,7 +15,7 @@ export async function PUT(
     
     try{
 
-        const body = await request.json()
+        const body: Partial<NewMember> = await request.json();
 
 
 
@@ -27,44 +29,11 @@ export async function PUT(
         );
         }
 
-        const memberRef = doc(db, "integrantes", id);
+        const member = await updateMember(id, body);
 
-        console.log("taskRef", memberRef)
-
-        const updateData: Partial<{
-            nombre: string;
-            apellido: string;
-            edad: number;
-            sexo: string;
-            rol: string;
-            imagen: string;
-            link: string;
-        }> = {};
-
-        if(body.nombre !== undefined) updateData.nombre = body.nombre;
-        if(body.apellido !== undefined) updateData.apellido = body.apellido;
-        if(body.edad !== undefined) updateData.edad = body.edad;
-        if(body.sexo !== undefined) updateData.sexo = body.sexo;
-        if(body.link !== undefined) updateData.link = body.link;
-        if(body.rol !== undefined) updateData.rol = body.rol;
-        if(body.imagen !== undefined) updateData.imagen = body.imagen;
-
-        await updateDoc(memberRef, updateData)
-
-        //Obtener y devolver el documento completo y actualizado
-        const updatedDoc = await getDoc(memberRef);
-
-        if(!updatedDoc.exists()){
-            return NextResponse.json(
-                {error:"Integrante no encontrado despues de Actualizar"},
-                {status: 404}
-            )
-        }
-
-        return NextResponse.json({
-            id: updatedDoc.id,
-            ...updatedDoc.data()
-        },
+    
+        return NextResponse.json(
+            member,
         {status:200}
     )
 
@@ -99,7 +68,8 @@ export async function DELETE (
             );
         }
 
-        await deleteDoc(doc(db, "integrantes", id));
+        deleteMember(id);
+
 
         return NextResponse.json({
             success: true,
