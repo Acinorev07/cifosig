@@ -1,14 +1,21 @@
+//src/app/Map/components/CardRutas.tsx
 import Image from "next/image";
 import Link from "next/link";
+import {
+    Card,
+    CardBody,
+    CardMedia,
+} from "@/components/ui/Card";
+import { CardRutasProps } from "@/types/InCardProps";
 
-type Props = {
-    id: number,
-    name: string,
-    link: string,
-    image: string
-}
+// type Props = {
+//     id: number,
+//     name: string,
+//     link: string,
+//     image: string
+// }
 
-const CardRutas= ({id, name, image}:Props)=>{
+const CardRutas= ({id, name, image}:CardRutasProps)=>{
 
 
    return (
@@ -16,7 +23,7 @@ const CardRutas= ({id, name, image}:Props)=>{
     href={`/Map/${id}?name=${encodeURIComponent(name)}`} 
     className="block"
     >
-        <div className="
+        {/* <div className="
             m-2 p-3 border rounded-2xl shadow 
             transition-all duration-200 
             hover:scale-105 hover:shadow-lg
@@ -34,7 +41,23 @@ const CardRutas= ({id, name, image}:Props)=>{
         </div>
 
         <p className="mt-2 font-semibold text-center">{name}</p>
-        </div>
+        </div> */}
+
+         <Card className="bg-[var(--green-200)]">
+
+                <CardMedia
+                    src={image}
+                    alt={name}
+                    className="rounded-t-2xl"
+                />
+
+                <CardBody>
+                    <p className="text-center font-semibold">
+                        {name}
+                    </p>
+                </CardBody>
+
+        </Card>
      </Link>
   );
 }

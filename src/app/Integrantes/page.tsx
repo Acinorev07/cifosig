@@ -265,7 +265,7 @@ export default function MembersPage(){
                                   sexo={integrante.sexo}
                                   link = {integrante.link}
                                   rol={integrante.rol}
-                                  image = {integrante.imagen}
+                                  imagen = {integrante.imagen}
                                   onEdit={
                                     (id)=>{
                                         const member = integrantes.find(i => i.id === id);

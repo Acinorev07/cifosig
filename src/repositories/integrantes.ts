@@ -1,6 +1,6 @@
 import { db } from "@/lib/firebase";
-import { NextResponse } from "next/server";
 import {doc,collection, getDocs, addDoc, updateDoc,getDoc, deleteDoc} from 'firebase/firestore'
+import { NewMember } from "@/types/InNewMember";
 
 
 
@@ -22,7 +22,7 @@ export async function getMembers(){
                 edad: data.edad,
                 sexo: data.sexo,
                 rol: data.rol,
-                imagen: data.imagen,
+                imagen: data.imagen || "/usuario.png",
                 link: data.link
             }
         });
@@ -34,7 +34,6 @@ export async function getMembers(){
 
 // }
 
-import { NewMember } from "@/types/InNewMember";
 
 export async function addMember(member:NewMember){
 
