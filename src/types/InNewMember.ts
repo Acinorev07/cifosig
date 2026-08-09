@@ -15,6 +15,6 @@ export interface Member extends NewMember {
 }
 
 export interface CardIntegrantesProps extends Member {
-    onEdit: (id: string) => void;
-    onDelete: (id: string) => void;
+    onEdit?: (id: string) => void;
+    onDelete?: (id: string) => void;
 }

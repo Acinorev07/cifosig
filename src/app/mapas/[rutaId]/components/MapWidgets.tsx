@@ -3,7 +3,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import  RutaLayers from "@/app/Map/[rutaId]/components/GeoJsonLayers";
+import  RutaLayers from "@/app/mapas/[rutaId]/components/GeoJsonLayers";
 
 
 // Fix para los íconos en Next.js

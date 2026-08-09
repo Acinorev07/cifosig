@@ -33,34 +33,36 @@ const CardIntegrantes= ({id, nombre, apellido ,edad, sexo, rol, link, imagen, on
              <p className="mt-2 font-semibold text-center">SEXO: {sexo}</p>
              <p className="mt-2 font-semibold text-center">ROL: {rol}</p>   
        </CardBody>
-       <CardFooter>
-            
-             <button  
-                className="p-2 border-2 border-black rounded"
-                onClick={
-                     (e)=> {
-                         e.preventDefault();
-                         onEdit(id.toString())
-                     }
-                 }
-                >
-                 Editar
-             </button>
+        {/* Solo aparece si se proporcionan las funciones */}
+      {(onEdit || onDelete) && (
+        <CardFooter>
 
-             <button 
-                  className="p-2 border-2 border-black rounded"
-                  onClick={
-                     (e)=>{
-                         e.preventDefault(); 
+          {onEdit && (
+            <button
+              className="p-2 border-2 border-black rounded"
+              onClick={(e) => {
+                e.preventDefault();
+                onEdit(id.toString());
+              }}
+            >
+              Editar
+            </button>
+          )}
 
-                         onDelete(id.toString())
+          {onDelete && (
+            <button
+              className="p-2 border-2 border-black rounded"
+              onClick={(e) => {
+                e.preventDefault();
+                onDelete(id.toString());
+              }}
+            >
+              Eliminar
+            </button>
+          )}
 
-                     }
-                 }
-             >       
-                 Eliminar 
-             </button>
-       </CardFooter>
+        </CardFooter>
+      )}
     </Card>
   );
 }

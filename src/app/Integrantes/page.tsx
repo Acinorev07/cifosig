@@ -4,13 +4,14 @@ import Header from "@/components/Header"
 import Link from 'next/link';
 import SidePanel from "@/components/SidePanel";
 import Footer from "@/components/Footer";
-import CardIntegrantes from "@/app/Integrantes/components/CardIntegrantes";
+import CardIntegrantes from "@/app/integrantes/components/CardIntegrantes";
 import { nanoid } from "nanoid"
 import Form from "./components/Form"
 import { NewMember } from "@/types/InNewMember";
-
-
+import { createMember, getMembers, killMember, putMember } from "@/services/integrantes";
 import { useState, useEffect } from 'react';
+import { MembeSchema } from "@/validators/members";
+import { panelNavegacion } from "@/services/panelNav";
 
 export interface Member extends NewMember{
     id:string;
@@ -28,99 +29,41 @@ export default function MembersPage(){
 
 
     useEffect(()=>{
-      fetch(`/api/panelNav`)
-         .then(res => res.json())
-         .then(data =>{
-          setPanelNav(data)
-         })
+        panelNavegacion()
+         .then(
+          setPanelNav
+         )
          .catch(err => console.error(err))
     },[])
     
 
-    //Obtener la lista de miebros desde la API
+    //Obtener la lista de miebros desde el servicio
     useEffect(()=>{
 
-        const fetchIntegrantes = async() => {
-
-            try{
-
-                const res = await fetch(`/api/integrantes`)
-
-                if (!res.ok){
-                    throw new Error('Error al cargar los integrantes...')
-                }
-
-                const data = await res.json();
-
-                setIntegrantes(data)
-            }catch (err){
-                setError(err instanceof Error ? err.message : 'Error desconocido');
-            }finally {
-                setIsLoading(false);
-            }
-
-        };
-
-        fetchIntegrantes()
+       getMembers()
+           .then(setIntegrantes)
+           .catch((err)=> setError(err.message))
+           .finally(()=>setIsLoading(false))
     },[])
 
     const addMembers = async (
         member:NewMember
     ): Promise<boolean>=>{
         try{
+        // Validación adicional en el frontend
+        const result = MembeSchema.safeParse(member);
 
-        
-            // Validación adicional en el frontend
-        if (!member.nombre.trim()) {
-          setError('El nombre del integrante es requerido');
-          return false;
-        }
-        if (!member.apellido.trim()) {
-          setError('El apellido del integrante es requerido');
-          return false;
-        }
-        if (!member.edad) {
-          setError('La edad del integrante es requerido');
-          return false;
-        }
-        if (!member.sexo.trim()) {
-          setError('El genero del integrante es requerido');
-          return false;
-        }
-        if (!member.rol.trim()) {
-          setError('El rol del integrante es requerido');
-          return false;
+        if (!result.success) {
+
+            const error = result.error.issues[0].message;
+
+            setError(error);
+
+            return false;
         }
 
         //si la imagen esta vacio agregar una imagen generica
-
-        const response = await fetch( `/api/integrantes`,{
-
-            method: 'POST',
-            headers: {
-                'Content-Type':'application/json',
-            },
-            body:JSON.stringify({
-                // id: `member-${nanoid()}`,
-                // key:`member-${nanoid()}`,
-                nombre: member.nombre.trim(),
-                apellido:member.apellido.trim(),
-                edad:member.edad,
-                sexo: member.sexo.trim(),
-                link: member.link.trim(),
-                rol: member.rol.trim(),
-                imagen: member.imagen.trim() || "/usuario.png"
-            }),
-        });
-
-        if(!response.ok){
-            const errorData = await response.json();
-            throw new Error (errorData.error || 'Error al añadir la tarea');
-
-        }
-
-        const newMember = await response.json();
-        console.log('Nuevo integrante: ', newMember);
+        const newMember = await createMember(member)
         setIntegrantes(prev => [...prev, newMember])
 
         return true
@@ -140,63 +83,15 @@ export default function MembersPage(){
         try{
 
                 // Validación adicional en el frontend
-                if (!member.nombre.trim()) {
-                setError('El nombre del integrante es requerido');
-                return false;
-                }
-                if (!member.apellido.trim()) {
-                setError('El apellido del integrante es requerido');
-                return false;
-                }
-                if (!member.edad) {
-                setError('La edad del integrante es requerido');
-                return false;
-                }
-                if (!member.sexo.trim()) {
-                setError('El genero del integrante es requerido');
-                return false;
-                }
-                if (!member.rol.trim()) {
-                setError('El rol del integrante es requerido');
-                return false;
-                }
+                const result = MembeSchema.safeParse(member);
 
-                console.log( `Estamos dentro de updateMeber`)
+                if (!result.success) {
+                    const error = result.error.issues[0].message;
+                    setError(error);
+                    return false;
+                }
                 
-                console.log(`Esta es la variable response id ${id}`)
-                console.log(`Esta es la variable response nombre ${member.nombre}`)
-                // console.log({
-                //     nombre: member.nombre,
-                //     apellido: member.apellido,
-                //     edad: member.edad,
-                //     sexo: member.sexo,
-                //     rol: member.rol,
-                //     imagen: member.imagen,
-                //     link: member.link,
-                // });
-
-
-                const response = await fetch( `/api/integrantes/${id}`,{
-
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type':'application/json',
-                    },
-                    body:JSON.stringify({
-                        nombre: member.nombre?.trim(),
-                        apellido:member.apellido?.trim(),
-                        edad:member.edad,
-                        sexo: member.sexo?.trim(),
-                        link: member.link?.trim() || "",
-                        rol: member.rol?.trim(),
-                        imagen: member.imagen?.trim() || "/usuario.png"
-                    }),
-                });
-
-                
-                const resp = await response.json()
-
-                console.log("resp:",resp)
+                const resp = await putMember(id, member)
 
                 setIntegrantes(prev=>
                     prev.map(m=>
@@ -221,21 +116,7 @@ export default function MembersPage(){
 
 
         try{
-
-
-            console.log("Estamos dentro de la funcion DeleteMember")
-
-            const response = await fetch(`/api/integrantes/${id}`,{
-                method : 'DELETE',
-                headers: {
-                    'Content-Type':'application/json'
-                }
-            })
-
-
-            const resp = await response.json()
-
-            console.log("resp:",resp)
+            const resp = await killMember(id)
 
             if (resp.success) {
                 setIntegrantes(prev =>
@@ -284,9 +165,7 @@ export default function MembersPage(){
                                   }
                                 />
     ));
-
-
-
+    
         // Mostrar estados de carga/error
     if (isLoading) {
         return <div className="loading">Cargando integrantes...</div>;
@@ -295,12 +174,9 @@ export default function MembersPage(){
     if (error) {
         return <div className="error">Error: {error}</div>;
     }
-
        return (
 
         <div className="grid grid-rows-[50px_1fr_160px] lg:grid-rows-[60px_60px_1fr_160px] font-sans items-center min-h-screen w-body">
-
-
             <Header row_span="row-start-1" isActive ={isActive} setIsActive={setIsActive}/>
 
             <aside className={`${isActive ? 'absolute right-0 mr-4' : 'hidden'} lg:hidden top-0 w-full bg-white z-50 rounded-md`}>
@@ -320,14 +196,11 @@ export default function MembersPage(){
                         </Link>
                     ))}
             </aside>
-
             <main 
                 className=" flex-col lg:row-start-3 items-center items-start"
                 // style={style}
             >
-
                  {formActive ? (
-
                 <div className="flex justify-center items-center min-h-screen">
                     <Form
                         addMembers={addMembers}
@@ -339,31 +212,23 @@ export default function MembersPage(){
                 </div>
 
             ) : (
-
                 <div className="flex flex-col place-content-center items-center min-h-screen col-span-3 lg:col-span-2 bg-[var(--green-200)] lg:bg-opacity-50">
-
                     <div className="flex justify-center">
                         <h2 className="text-2xl font-bold p-2">
                             Integrantes del semillero SIFOSIG
                         </h2>
                     </div>
-
                      {integrantes.length === 0 ? (
-
                             <div className="col-span-full flex justify-center py-10">
                                 <p className="text-2xl font-semibold text-gray-600">
                                     La lista de integrantes está vacía
                                 </p>
                             </div>
-
                         ) : (
-
                              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
                                 {listaIntegrantes}
                              </div>
-
                     )}
-
                     <div className="flex place-content-center bg-[var(--green-200)] min-w-screen">
                         <button
                             className="p-2 bg-[var(--violet-400)] border rounded-2xl shadow 
@@ -379,12 +244,8 @@ export default function MembersPage(){
                             Agregar
                         </button>
                     </div>
-
                 </div>
-
             )}
-
-
             </main>
             
             <Footer/>

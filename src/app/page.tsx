@@ -7,12 +7,15 @@ import SidePanel from "@/components/SidePanel";
 import Button from "@/components/Button";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import CardRutas from "./Map/components/CardRutas";
+import CardRutas from "./mapas/components/CardRutas";
 import Link from 'next/link';
 import { getImageProps} from 'next/image'
-import CardIntegrantes from "@/app/Integrantes/components/CardIntegrantes";
+import CardIntegrantes from "@/app/integrantes/components/CardIntegrantes";
 import smartVideo from "@/components/video_inteligente";
-
+import { panelNavegacion } from "@/services/panelNav";
+import { getMembers } from "@/services/integrantes";
+import { callRutas } from "@/services/rutas";
+import { planet } from "@/services/planet";
 
 
 export default function Home() {
@@ -22,37 +25,36 @@ export default function Home() {
   const [rutas, setRutas] = useState<any[]>([]);
   const [integrantes, setIntegrantes] = useState<any[]>([])
   const [image, setImage] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
 
   useEffect(()=>{
-      fetch(`/api/panelNav`)
-         .then(res => res.json())
-         .then(data =>{
-          setPanelNav(data)
-         })
+      panelNavegacion()
+         .then(
+          setPanelNav
+         )
          .catch(err => console.error(err))
     },[])
 
 
    useEffect(()=>{
 
-    fetch(`/api/rutas`)
-       .then(res=>res.json())
-       .then(data => {
-        setRutas(data)
-       })
+    callRutas()
+       .then(
+        setRutas
+       )
        .catch( err => console.error(err))
   },[])
 
-   useEffect(()=>{
-
-      fetch(`/api/integrantes`)
-        .then(res=>res.json())
-        .then(data => {
-          setIntegrantes(data)
-        })
-        .catch( err => console.error(err))
-      },[])
+   //Obtener la lista de miebros desde el servicio
+       useEffect(()=>{
+   
+          getMembers()
+              .then(setIntegrantes)
+              .catch((err)=> setError(err.message))
+              .finally(()=>setIsLoading(false))
+       },[])
 
        
    useEffect(() => {
@@ -62,10 +64,9 @@ export default function Home() {
 
     useEffect(() => {
 
-        fetch("/api/planet?width=512")
-            .then(res => res.blob())
+        
+      planet()
             .then(blob => {
-                console.log("data-sentinel: ",blob)
                 const imageUrl = URL.createObjectURL(blob)
                 setImage(imageUrl);
             });
@@ -154,7 +155,7 @@ export default function Home() {
                 </div>
                 <div className="p-4">
                  
-                   <Link href="/Map" className="bg-[var(--forest-autumn)] text-white px-6 py-2 rounded-md font-semibold hover:bg-[#b84a2a] transition shadow-md">Todas las rutas...</Link>
+                   <Link href="/mapas" className="bg-[var(--forest-autumn)] text-white px-6 py-2 rounded-md font-semibold hover:bg-[#b84a2a] transition shadow-md">Todas las rutas...</Link>
 
                 </div>
             
@@ -192,29 +193,29 @@ export default function Home() {
             </p>
 
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full p-4">
           
-            {/* {
+            {
               integrantes.slice(0, 4).map((integrante)=>(
-                // <CardIntegrantes 
-                //   key = {integrante.id}
-                //   id = {integrante.id}
-                //   nombre = {integrante.nombre}
-                //   apellido={integrante.apellido}
-                //   edad={integrante.edad}
-                //   sexo={integrante.sexo}
-                //   link = {integrante.link}
-                //   rol={integrante.rol}
-                //   image = {integrante.imagen}
-                // />
+                <CardIntegrantes 
+                  key = {integrante.id}
+                  id = {integrante.id}
+                  nombre = {integrante.nombre}
+                  apellido={integrante.apellido}
+                  edad={integrante.edad}
+                  sexo={integrante.sexo}
+                  link = {integrante.link}
+                  rol={integrante.rol}
+                  imagen = {integrante.imagen}
+                />
 
               )
-              )} */}
+              )}
    
           </div>
           <div className="p-4">
                  
-                 <Link href="/Integrantes" className="text-[var(--forest-moss)] font-bold hover:underline">Todos los miembros...</Link>
+                 <Link href="/integrantes" className="text-[var(--forest-moss)] font-bold hover:underline">Todos los miembros...</Link>
 
           </div>
         </div>

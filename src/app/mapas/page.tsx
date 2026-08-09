@@ -7,8 +7,9 @@ import Image from "next/image";
 import HamburgerIcon from "@/components/HamburguerIcon";
 import { useRouter } from "next/navigation";
 import CardRutas from "./components/CardRutas";
+import { callRutas } from "@/services/rutas";
 
-const ClientOnlyMap = dynamic(() => import("@/app/Map/components/ClientOnlyMap"), {
+const ClientOnlyMap = dynamic(() => import("@/app/mapas/components/ClientOnlyMap"), {
   ssr: false,
 });
 
@@ -28,15 +29,19 @@ export default function MapPage() {
   const [rutas, setRutas] = useState<any[]>([]);
   const router = useRouter();
 
-  useEffect(()=>{
 
-    fetch(`/api/rutas`)
-       .then(res=>res.json())
-       .then(data => {
-        setRutas(data)
-       })
-       .catch( err => console.error(err))
-  },[])
+  useEffect(()=>{
+  
+      callRutas()
+         .then(data=>{
+          setRutas(data)
+         }
+         )
+         .catch( err => console.error(err))
+    },[])
+
+
+    console.log("rutas",rutas[3])
 
   return (
     <div className="grid grid-rows-[50px_1fr_20px] font-sans items-center justify-items-center min-h-body px-2 py-4 gap-16 mb-8">
