@@ -1,3 +1,6 @@
+// import { mapaBase } from "@/services/planet";
+
+
 export async function GET(request:Request) {
 
   // const clientId = process.env.PLANET_CLIENT_ID!;
@@ -31,3 +34,18 @@ export async function GET(request:Request) {
     },
   });
 }
+
+
+// export async function GET(request:Request) {
+
+
+//     // const clientId = process.env.PLANET_CLIENT_ID!;
+//   const clientSecret = process.env.PLANET_CLIENT_SECRET!;
+//   const {searchParams}= new URL(request.url)
+
+
+//   const resp = mapaBase(clientSecret)
+
+//   console.log("Mapa base: ",resp)
+
+// }
