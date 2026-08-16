@@ -8,6 +8,7 @@ import HamburgerIcon from "@/components/HamburguerIcon";
 import { useRouter } from "next/navigation";
 import CardRutas from "./components/CardRutas";
 import { callRutas } from "@/services/rutas";
+import { Ruta } from "@/types/InRutas";
 
 const ClientOnlyMap = dynamic(() => import("@/app/mapas/components/ClientOnlyMap"), {
   ssr: false,
@@ -15,7 +16,6 @@ const ClientOnlyMap = dynamic(() => import("@/app/mapas/components/ClientOnlyMap
 
  const style = { 
     // backgroundImage, 
-
     backgroundSize: 'cover', // Esto es crucial
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -26,12 +26,11 @@ const ClientOnlyMap = dynamic(() => import("@/app/mapas/components/ClientOnlyMap
 
 export default function MapPage() {
   const [isActive, setIsActive] = useState(false);
-  const [rutas, setRutas] = useState<any[]>([]);
+  const [rutas, setRutas] = useState<Ruta[]>([]);
   const router = useRouter();
 
 
   useEffect(()=>{
-  
       callRutas()
          .then(data=>{
           setRutas(data)
@@ -39,9 +38,6 @@ export default function MapPage() {
          )
          .catch( err => console.error(err))
     },[])
-
-
-    console.log("rutas",rutas[3])
 
   return (
     <div className="grid grid-rows-[50px_1fr_20px] font-sans items-center justify-items-center min-h-body px-2 py-4 gap-16 mb-8">
@@ -91,13 +87,11 @@ export default function MapPage() {
               <CardRutas 
                  key = {ruta.id}
                  id = {ruta.id}
-                 name = {ruta.nombre}
+                 nombre = {ruta.nombre}
                  link = {ruta.link}
-                 image = {ruta.imagen}
+                 imagen = {ruta.imagen}
               />
-
             ))}
-
         </div>
       </main>
 

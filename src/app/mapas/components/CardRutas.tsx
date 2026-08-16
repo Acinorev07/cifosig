@@ -8,34 +8,24 @@ import {
 } from "@/components/ui/Card";
 import { CardRutasProps } from "@/types/InCardProps";
 
-// type Props = {
-//     id: number,
-//     name: string,
-//     link: string,
-//     image: string
-// }
-
-const CardRutas= ({id, name, image}:CardRutasProps)=>{
-
-
-    console.log("nombre",name)
+const CardRutas= ({id, nombre, imagen}:CardRutasProps)=>{
 
    return (
     <Link 
-    href={`/mapas/${id}?name=${encodeURIComponent(name)}`} 
+    href={`/mapas/${id}?name=${encodeURIComponent(nombre)}`} 
     className="block"
     >
          <Card className="bg-[var(--green-200)]">
 
                 <CardMedia
-                    src={image}
-                    alt={name}
+                    src={imagen}
+                    alt={nombre}
                     className="rounded-t-2xl"
                 />
 
                 <CardBody>
                     <p className="text-center font-semibold">
-                        {name}
+                        {nombre}
                     </p>
                 </CardBody>
 

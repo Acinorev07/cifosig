@@ -5,29 +5,24 @@ import Link from 'next/link';
 import SidePanel from "@/components/SidePanel";
 import Footer from "@/components/Footer";
 import CardIntegrantes from "@/app/integrantes/components/CardIntegrantes";
-import { nanoid } from "nanoid"
 import Form from "./components/Form"
-import { NewMember } from "@/types/InNewMember";
-import { createMember, getMembers, killMember, putMember } from "@/services/integrantes";
+import { NewMember, Member } from "@/types/InNewMember";
 import { useState, useEffect } from 'react';
-import { MembeSchema } from "@/validators/members";
 import { panelNavegacion } from "@/services/panelNav";
+import { PanelItem } from "@/types/InPanelItems";
+import { useMember } from "@/hooks/useMember";
 
-export interface Member extends NewMember{
-    id:string;
-}
+// export interface Member extends NewMember{
+//     id:string;
+// }
 export default function MembersPage(){
 
     const [isActive, setIsActive] = useState(false)
-    const [panelNav, setPanelNav] = useState<any[]>([])
-    const [integrantes, setIntegrantes] = useState<any[]>([])
+    const [panelNav, setPanelNav] = useState<PanelItem[]>([])
     const [formActive, setFormActive] = useState(false)
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
     const [editingMember, setEditingMember] = useState<Member | null>(null)
-    const [deleteMember, setDeleteMember] = useState<Member | null>(null)
 
-
+    const {integrantes,isLoading,error,addMembers,updateMember, deleteMember} = useMember()
     useEffect(()=>{
         panelNavegacion()
          .then(
@@ -36,105 +31,6 @@ export default function MembersPage(){
          .catch(err => console.error(err))
     },[])
     
-
-    //Obtener la lista de miebros desde el servicio
-    useEffect(()=>{
-
-       getMembers()
-           .then(setIntegrantes)
-           .catch((err)=> setError(err.message))
-           .finally(()=>setIsLoading(false))
-    },[])
-
-    const addMembers = async (
-        member:NewMember
-    ): Promise<boolean>=>{
-        try{
-        // Validación adicional en el frontend
-        const result = MembeSchema.safeParse(member);
-
-        if (!result.success) {
-
-            const error = result.error.issues[0].message;
-
-            setError(error);
-
-            return false;
-        }
-
-        //si la imagen esta vacio agregar una imagen generica
-        const newMember = await createMember(member)
-        setIntegrantes(prev => [...prev, newMember])
-
-        return true
-
-        }catch(error){
-            console.error('Error:', error);
-            setError(error instanceof Error ? error.message : 'Error desconocido');
-
-            return false
-        }
-    }
-
-    const updateMember = async(
-        id:string,
-        member:NewMember
-    ): Promise<boolean> =>{
-        try{
-
-                // Validación adicional en el frontend
-                const result = MembeSchema.safeParse(member);
-
-                if (!result.success) {
-                    const error = result.error.issues[0].message;
-                    setError(error);
-                    return false;
-                }
-                
-                const resp = await putMember(id, member)
-
-                setIntegrantes(prev=>
-                    prev.map(m=>
-                        m.id === id ? {...m, ...resp} : m
-                    )
-                )
-
-                setFormActive(false)
-                return true;
-
-
-        }catch(error){
-            console.log(error)
-            return false;
-        }
-    }
-
-
-    const DeleteMember = async(
-        id:string
-    ):Promise<boolean>=>{
-
-
-        try{
-            const resp = await killMember(id)
-
-            if (resp.success) {
-                setIntegrantes(prev =>
-                    prev.filter(member => member.id !== id)
-                );
-            }
-            return true
-
-
-        }catch(error){
-
-            console.log("Error dentro de Delete Member", error)
-            return true
-
-        }
-    }
-
-
     //Tarjetas con las listas de los integrantes
     const listaIntegrantes = integrantes.map((integrante)=>(
                                 <CardIntegrantes 
@@ -160,7 +56,7 @@ export default function MembersPage(){
                                   onDelete={
                                     (id)=>{
                                         
-                                        DeleteMember(id.toString());   
+                                        deleteMember(id.toString());   
                                     }
                                   }
                                 />
@@ -204,7 +100,9 @@ export default function MembersPage(){
                 <div className="flex justify-center items-center min-h-screen">
                     <Form
                         addMembers={addMembers}
-                        updateMember={updateMember}
+                        updateMember={(id, member) =>
+                            updateMember(id, member, () => setFormActive(false))
+                        }
                         formActive={formActive}
                         setFormActive={setFormActive}
                         member = {editingMember}

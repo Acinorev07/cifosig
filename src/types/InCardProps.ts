@@ -15,8 +15,8 @@ export interface ImgCardProps {
 
 
 export interface CardRutasProps {
-    id: number,
-    name: string,
+    id: string,
+    nombre: string,
     link: string,
-    image: string
+    imagen: string
 }

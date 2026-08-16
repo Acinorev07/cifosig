@@ -2,6 +2,7 @@
 
 import { FormEvent, ChangeEvent, useEffect ,useState} from 'react';
 import { NewMember } from '@/types/InNewMember';
+import { constantes } from '@/const/constantes';
 
 export interface Member extends NewMember{
     id:string;
@@ -54,6 +55,9 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
     }, [member]);
 
 
+    const isEditing = member !== null
+
+
     const handleSubmit = async (event:FormEvent<HTMLFormElement>)=>{
             
         event.preventDefault();
@@ -103,7 +107,6 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
             }
 
         }
-        // alert("Hello.world");
         
     }
 
@@ -117,24 +120,19 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
 
             setImagen(imageUrl);
         }
-        // props.addMembers(image)
-        // setImage("")
 
     }
 
     const handleChangeNombre = (event:ChangeEvent<HTMLInputElement>)=>{
         console.log(event?.target.value);
         setNombre(event.target.value);
-        // props.addMembers(name)
-        // setName("")
+
     }
 
     const handleChangeApellido = (event:ChangeEvent<HTMLInputElement>)=>{
          
         console.log(event?.target.value);
         setApellido(event.target.value);
-        // props.addMembers(email);
-        // setEmail("")
 
     };
 
@@ -149,19 +147,14 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
         }
 
         setEdad(value);
-        // setEdad(Number(event.target.value));
-        
-        // props.addMembers(email);
-        // setEmail("")
-
+       
     };
 
     const handleChangeSexo = (event:ChangeEvent<HTMLInputElement>)=>{
          
         console.log(event?.target.value);
         setSexo(event.target.value);
-        // props.addMembers(email);
-        // setEmail("")
+       
 
     };
 
@@ -169,33 +162,24 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
          
         console.log(event?.target.value);
         setRol(event.target.value);
-        // props.addMembers(email);
-        // setEmail("")
+       
 
     };
 
-    const handleChangeLink = (event:ChangeEvent<HTMLInputElement>)=>{
-         
+    const handleChangeLink = (event:ChangeEvent<HTMLInputElement>)=>{ 
         console.log(event?.target.value);
         setLink(event.target.value);
-        // props.addMembers(email);
-        // setEmail("")
-
     };
-
-  
-
-
 
 return (
 
     <form onSubmit={handleSubmit} >
-            
-            <div className='flex flex-col gap-2 items-center bg-[var(--forestgreen)] p-4 rounded-lg'>
+
                 <h2 className="label-wrapper">
-                     Register members in the seedbed SIFOCIG 
+                     {isEditing ? "Editar Integrante": "Nuevo integrante"}
                 </h2>
-                <p>
+               <div className="grid md:grid-cols-2 gap-4">
+                {/* <p>
                     <label htmlFor="foto" className='mr-2'>Foto</label>
                      <input
                         type="file"
@@ -203,96 +187,117 @@ return (
                         className="border-2 field-sizing-content"
                         name="member_imagen"
                         autoComplete="off"
-                        // value={image}
                         accept='image/*'
                         onChange={handleChangeImagen}
                         />
 
-                </p>
-
-                <p>
-                    <label htmlFor="nombre" className='mr-2'>Nombre</label>
+                </p> */}
+                <div>
+                    <label htmlFor="foto" className="block mb-1 font-medium">Foto</label>
                      <input
+                        type="file"
+                        id="foto"
+                        name="member_imagen"
+                        autoComplete="off"
+                        accept='image/*'
+                        onChange={handleChangeImagen}
+                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
+                        />
+
+                </div>
+                <div className="flex justify-center">
+                <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white">
+                    <img
+                    src={imagen || constantes.DEFAULT_IMAGE }
+                    className="object-cover w-full h-full"
+                    />
+                </div>
+                </div>
+                <div>
+                    <label htmlFor="nombre" className="block mb-1 font-medium">Nombre</label>
+
+                    <input
                         type="text"
                         id="nombre"
-                        className="border-2 field-sizing-content w-90"
                         name="member_nombre"
                         autoComplete="off"
                         value={nombre}
                         onChange={handleChangeNombre}
-                        />
-
-                </p>
-
-                <p>
-                    <label htmlFor="apellido" className='mr-2'>Apellido</label>
+                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
+                    />
+                </div>
+                 <div>
+                    <label htmlFor="apellido" className="block mb-1 font-medium">Apellido</label>
                      <input
                         type="text"
                         id="apellido"
-                        className="border-2 field-sizing-content w-90"
                         name="member_apellido"
                         autoComplete="off"
                         value={apellido}
                         onChange={handleChangeApellido}
+                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
                         />
 
-                </p>
-                <p>
-                    <label htmlFor="edad" className='mr-2'>Edad</label>
+                </div>
+                 <div>
+                    <label htmlFor="edad" className="block mb-1 font-medium">Edad</label>
                      <input
                         type="number"
                         id="edad"
-                        className="border-2 field-sizing-content w-90"
                         name="member_edad"
                         autoComplete="off"
                         value={edad}
                         onChange={handleChangeEdad}
+                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
                         />
 
-                </p>
-                <p>
-                    <label htmlFor="sexo" className='mr-2'>Sexo</label>
+                </div>
+                 <div>
+                    <label htmlFor="sexo" className="block mb-1 font-medium">Sexo</label>
                      <input
                         type="text"
                         id="sexo"
-                        className="border-2 field-sizing-content w-90"
                         name="member_sexo"
                         autoComplete="off"
                         value={sexo}
                         onChange={handleChangeSexo}
+                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
                         />
 
-                </p>
-                <p>
-                    <label htmlFor="rol" className='mr-2'>Rol</label>
+                </div>
+                <div>
+                    <label htmlFor="rol" className="block mb-1 font-medium">Rol</label>
                      <input
                         type="text"
                         id="rol"
-                        className="border-2 field-sizing-content w-90"
                         name="member_rol"
                         autoComplete="off"
                         value={rol}
                         onChange={handleChangeRol}
+                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
                         />
 
-                </p>
-                <p>
-                    <label htmlFor="link" className='mr-2'>Link</label>
+                </div>
+                
+                <div>
+                    <label htmlFor="link" className="block mb-1 font-medium">Link</label>
                      <input
                         type="text"
                         id="link"
-                        className="border-2 field-sizing-content w-90"
                         name="member_link"
                         autoComplete="off"
                         value={link}
                         onChange={handleChangeLink}
+                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
                         />
 
-                </p>
+                </div>
+
+                </div>
                <div className='flex justify-between w-full'>
 
                     <button type="submit" className="bg-indigo-500 opacity-100 w-full">
-                        Add
+                        {isEditing ? "Editar" : "Agregar"}
                     </button>
 
                     <button
@@ -306,8 +311,10 @@ return (
                     </button>
 
                </div>
+
+           
                 
-            </div>
+            
             </form>
 )
 }
