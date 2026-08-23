@@ -146,7 +146,7 @@ export default function Home() {
                           key = {ruta.id}
                           id = {ruta.id}
                           nombre = {ruta.nombre}
-                          link = {ruta.link}
+                          geojson = {ruta.geojson}
                           imagen = {ruta.imagen}
                         />
 
