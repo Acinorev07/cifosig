@@ -27,6 +27,8 @@ export default function Card({
     return (
         <div
             className={`
+                flex
+                flex-col
                 rounded-2xl
                 shadow-md
                 border

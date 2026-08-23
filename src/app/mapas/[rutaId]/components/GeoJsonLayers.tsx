@@ -1,3 +1,5 @@
+// src/app/mapas/[rutaId]/components/GeoJsonLayers.tsx
+
 "use client";
 
 import { GeoJSON } from "react-leaflet";
@@ -33,14 +35,16 @@ const obtenerCoordenadas = (features: any[]) => {
     ]);
 };
 
-export default function RutaLayer({ rutaId }: { rutaId: string }) {
+export default function RutaLayer({ geojson, fotosRuta }: { geojson?: string, fotosRuta?:string }) {
   const [data, setData] = useState<any>(null);
 
   useEffect(() => {
-    fetch(`/data/ruta/ruta${rutaId}.geojson`)
+    if(!geojson) return
+
+    fetch(geojson)
       .then(res => res.json())
-      .then((geojson) => {
-        const fixedFeatures = geojson.features.flatMap((f: any) => {
+      .then((geojsonData) => {
+        const fixedFeatures = geojsonData.features.flatMap((f: any) => {
           if (f.geometry.type === "GeometryCollection") {
             return f.geometry.geometries.map((g: any) => ({
               type: "Feature",
@@ -56,7 +60,7 @@ export default function RutaLayer({ rutaId }: { rutaId: string }) {
           features: fixedFeatures,
         });
       });
-  }, []);
+  }, [geojson]);
 
   if (!data) return null;
 
@@ -84,7 +88,7 @@ export default function RutaLayer({ rutaId }: { rutaId: string }) {
 
             const nombreArchivo = rutaLimpia.replace("images/", "");
 
-            const rutaFinal = `/data/ruta/images_r_${rutaId}/${nombreArchivo}`;
+            const rutaFinal = `${fotosRuta}/${nombreArchivo}`;
 
             console.log("ruta final:", rutaFinal);
 

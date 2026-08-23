@@ -1,7 +1,8 @@
 export interface NewRutas{
     nombre:string;
-    link:string;
+    geojson:string;
     imagen:string
+    fotosRuta?:string
 }
 
 export interface Ruta extends NewRutas{

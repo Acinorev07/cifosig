@@ -12,9 +12,6 @@ import { panelNavegacion } from "@/services/panelNav";
 import { PanelItem } from "@/types/InPanelItems";
 import { useMember } from "@/hooks/useMember";
 
-// export interface Member extends NewMember{
-//     id:string;
-// }
 export default function MembersPage(){
 
     const [isActive, setIsActive] = useState(false)
@@ -94,7 +91,7 @@ export default function MembersPage(){
             </aside>
             <main 
                 className=" flex-col lg:row-start-3 items-center items-start"
-                // style={style}
+                
             >
                  {formActive ? (
                 <div className="flex justify-center items-center min-h-screen">
@@ -110,7 +107,7 @@ export default function MembersPage(){
                 </div>
 
             ) : (
-                <div className="flex flex-col place-content-center items-center min-h-screen col-span-3 lg:col-span-2 bg-[var(--green-200)] lg:bg-opacity-50">
+                <div className="flex flex-col place-content-center items-center min-h-screen col-span-3 lg:col-span-2 bg-[var(--green-200)] lg:bg-opacity-50 gap-2">
                     <div className="flex justify-center">
                         <h2 className="text-2xl font-bold p-2">
                             Integrantes del semillero SIFOSIG

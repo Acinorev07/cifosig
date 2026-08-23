@@ -7,7 +7,7 @@ export default function CardMedia({
     className,
 }: ImgCardProps) {
     return (
-        <div className="flex flex-col items-center-safe relative w-full h-[160px] rounded-2xl pt-4">
+        <div className="flex place-content-center relative w-full h-32 rounded-2xl pt-4">
             <Image
                 src={src}
                 alt={alt}

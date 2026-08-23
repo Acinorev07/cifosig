@@ -1,3 +1,5 @@
+//src/app/mapas/[rutaId]/components/MapWidgets.tsx
+
 "use client";
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
@@ -15,9 +17,10 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "/leaflet/marker-shadow.png",
 });
 
-export default function MapWidgets({ rutaId }: { rutaId: string }) {
+export default function MapWidgets({ geojson, fotosRuta }: { geojson?: string, fotosRuta?:string }) {
   
    if (typeof window === "undefined") return null;
+
   return (
     <MapContainer
       center={[6.699, -72.732]} // Málaga, Santander
@@ -33,7 +36,7 @@ export default function MapWidgets({ rutaId }: { rutaId: string }) {
       />
 
       
-      <RutaLayers rutaId={rutaId}/>
+      <RutaLayers geojson={geojson} fotosRuta={fotosRuta}/>
      
     </MapContainer>
   );

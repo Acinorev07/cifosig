@@ -1,3 +1,5 @@
+// src/app/mapas/[rutaId]/components/ClientOnlyMaps.tsx
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -9,7 +11,7 @@ const MapWidgets = dynamic(() => import("./MapWidgets"), {
   ssr: false,
 });
 
-export default function ClientOnlyMaps({ rutaId }: { rutaId: string }) {
+export default function ClientOnlyMaps({ geojson, fotosRuta }: { geojson?: string, fotosRuta?:string }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -18,5 +20,5 @@ export default function ClientOnlyMaps({ rutaId }: { rutaId: string }) {
 
   if (!mounted) return null;
 
-  return <MapWidgets rutaId={rutaId} />;
+  return <MapWidgets geojson={geojson} fotosRuta={fotosRuta}/>;
 }

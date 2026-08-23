@@ -3,6 +3,13 @@
 import { FormEvent, ChangeEvent, useEffect ,useState} from 'react';
 import { NewMember } from '@/types/InNewMember';
 import { constantes } from '@/const/constantes';
+import {
+  UiForm,
+  FormTitle,
+  FormField,
+  FormInput,
+  FormActions,
+} from "@/components/ui/Form";
 
 export interface Member extends NewMember{
     id:string;
@@ -173,149 +180,77 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
 
 return (
 
-    <form onSubmit={handleSubmit} >
+    <UiForm
+        onSubmit={handleSubmit}
+    >
+       <FormTitle
+            title={isEditing ? "Editar integrante" : "Nuevo integrante"}
+            subtitle="Registro del semillero CIFOSIG"
+        />
 
-                <h2 className="label-wrapper">
-                     {isEditing ? "Editar Integrante": "Nuevo integrante"}
-                </h2>
-               <div className="grid md:grid-cols-2 gap-4">
-                {/* <p>
-                    <label htmlFor="foto" className='mr-2'>Foto</label>
-                     <input
-                        type="file"
-                        id="foto"
-                        className="border-2 field-sizing-content"
-                        name="member_imagen"
-                        autoComplete="off"
-                        accept='image/*'
-                        onChange={handleChangeImagen}
-                        />
+        <FormField label="Imagen">
+            <FormInput
+                type='file'
+                accept='image/*'
+                onChange={handleChangeImagen}
+            />
+        </FormField>
 
-                </p> */}
-                <div>
-                    <label htmlFor="foto" className="block mb-1 font-medium">Foto</label>
-                     <input
-                        type="file"
-                        id="foto"
-                        name="member_imagen"
-                        autoComplete="off"
-                        accept='image/*'
-                        onChange={handleChangeImagen}
-                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
-                        />
-
-                </div>
-                <div className="flex justify-center">
-                <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white">
-                    <img
-                    src={imagen || constantes.DEFAULT_IMAGE }
-                    className="object-cover w-full h-full"
-                    />
-                </div>
-                </div>
-                <div>
-                    <label htmlFor="nombre" className="block mb-1 font-medium">Nombre</label>
-
-                    <input
-                        type="text"
-                        id="nombre"
-                        name="member_nombre"
-                        autoComplete="off"
-                        value={nombre}
-                        onChange={handleChangeNombre}
-                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
-                    />
-                </div>
-                 <div>
-                    <label htmlFor="apellido" className="block mb-1 font-medium">Apellido</label>
-                     <input
-                        type="text"
-                        id="apellido"
-                        name="member_apellido"
-                        autoComplete="off"
-                        value={apellido}
-                        onChange={handleChangeApellido}
-                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
-                        />
-
-                </div>
-                 <div>
-                    <label htmlFor="edad" className="block mb-1 font-medium">Edad</label>
-                     <input
-                        type="number"
-                        id="edad"
-                        name="member_edad"
-                        autoComplete="off"
-                        value={edad}
-                        onChange={handleChangeEdad}
-                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
-                        />
-
-                </div>
-                 <div>
-                    <label htmlFor="sexo" className="block mb-1 font-medium">Sexo</label>
-                     <input
-                        type="text"
-                        id="sexo"
-                        name="member_sexo"
-                        autoComplete="off"
-                        value={sexo}
-                        onChange={handleChangeSexo}
-                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
-                        />
-
-                </div>
-                <div>
-                    <label htmlFor="rol" className="block mb-1 font-medium">Rol</label>
-                     <input
-                        type="text"
-                        id="rol"
-                        name="member_rol"
-                        autoComplete="off"
-                        value={rol}
-                        onChange={handleChangeRol}
-                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
-                        />
-
-                </div>
-                
-                <div>
-                    <label htmlFor="link" className="block mb-1 font-medium">Link</label>
-                     <input
-                        type="text"
-                        id="link"
-                        name="member_link"
-                        autoComplete="off"
-                        value={link}
-                        onChange={handleChangeLink}
-                        className="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-violet-400"
-                        />
-
-                </div>
-
-                </div>
-               <div className='flex justify-between w-full'>
-
-                    <button type="submit" className="bg-indigo-500 opacity-100 w-full">
-                        {isEditing ? "Editar" : "Agregar"}
-                    </button>
-
-                    <button
-                       type="button" 
-                       className="bg-red-500 opacity-100 w-full"
-                       onClick={()=>{
-                        setFormActive(false)
-                       }}
-                       >
-                        close
-                    </button>
-
-               </div>
-
-           
-                
+        <FormField label="Nombre">
+            <FormInput
+                value={nombre}
+                onChange={handleChangeNombre}
+            />
             
-            </form>
+        </FormField>
+        <FormField label="Apellido">
+            <FormInput
+                value={apellido}
+                onChange={handleChangeApellido}
+            />
+        </FormField>
+        <FormField label="Edad">
+            <FormInput
+                type='number'
+                value={edad}
+                onChange={handleChangeEdad}
+            />
+        </FormField>
+        <FormField label="Sexo">
+            <FormInput
+                value={sexo}
+                onChange={handleChangeSexo}
+            />
+        </FormField>
+        <FormField label="Rol">
+            <FormInput
+                value={rol}
+                onChange={handleChangeRol}
+            />
+        </FormField>
+        <FormField label="Link">
+            <FormInput
+                value={link}
+                onChange={handleChangeLink}
+            />
+        </FormField>
+
+        <FormActions>
+
+            <button type="submit" className='bg-cyan-500 rounded-md p-2 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500'>
+            {isEditing ? "Guardar cambios" : "Agregar integrante"}
+            </button>
+
+            <button
+            className='bg-pink-500 rounded-md p-2 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500'
+            type="button"
+            onClick={() => setFormActive(false)}
+            >
+            Cancelar
+            </button>
+
+        </FormActions>
+    </UiForm>
 )
 }
 

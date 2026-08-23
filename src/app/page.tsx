@@ -145,9 +145,9 @@ export default function Home() {
                         <CardRutas 
                           key = {ruta.id}
                           id = {ruta.id}
-                          name = {ruta.nombre}
+                          nombre = {ruta.nombre}
                           link = {ruta.link}
-                          image = {ruta.imagen}
+                          imagen = {ruta.imagen}
                         />
 
                       ))}
