@@ -27,11 +27,11 @@ const CardIntegrantes= ({id, nombre, apellido ,edad, sexo, rol, link, imagen, on
            className="rounded-full"
        />
        <CardBody>
-             <p className="mt-2 font-semibold text-center">NOMBRE: {nombre}</p>
-             <p className="mt-2 font-semibold text-center">APELLIDO: {apellido}</p>
-             <p className="mt-2 font-semibold text-center">EDAD: {edad}</p>
-             <p className="mt-2 font-semibold text-center">SEXO: {sexo}</p>
-             <p className="mt-2 font-semibold text-center">ROL: {rol}</p>   
+             <p className="mt-2 font-semibold text-center">{nombre}</p>
+             <p className="mt-2 font-semibold text-center">{apellido}</p>
+             <p className="mt-2 font-semibold text-center">{edad} años</p>
+             <p className="mt-2 font-semibold text-center">{sexo}</p>
+             <p className="mt-2 font-semibold text-center">{rol}</p>   
        </CardBody>
         {/* Solo aparece si se proporcionan las funciones */}
       {(onEdit || onDelete) && (

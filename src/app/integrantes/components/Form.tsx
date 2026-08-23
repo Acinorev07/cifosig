@@ -2,6 +2,14 @@
 
 import { FormEvent, ChangeEvent, useEffect ,useState} from 'react';
 import { NewMember } from '@/types/InNewMember';
+import { constantes } from '@/const/constantes';
+import {
+  UiForm,
+  FormTitle,
+  FormField,
+  FormInput,
+  FormActions,
+} from "@/components/ui/Form";
 
 export interface Member extends NewMember{
     id:string;
@@ -54,6 +62,9 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
     }, [member]);
 
 
+    const isEditing = member !== null
+
+
     const handleSubmit = async (event:FormEvent<HTMLFormElement>)=>{
             
         event.preventDefault();
@@ -103,7 +114,6 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
             }
 
         }
-        // alert("Hello.world");
         
     }
 
@@ -117,24 +127,19 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
 
             setImagen(imageUrl);
         }
-        // props.addMembers(image)
-        // setImage("")
 
     }
 
     const handleChangeNombre = (event:ChangeEvent<HTMLInputElement>)=>{
         console.log(event?.target.value);
         setNombre(event.target.value);
-        // props.addMembers(name)
-        // setName("")
+
     }
 
     const handleChangeApellido = (event:ChangeEvent<HTMLInputElement>)=>{
          
         console.log(event?.target.value);
         setApellido(event.target.value);
-        // props.addMembers(email);
-        // setEmail("")
 
     };
 
@@ -149,19 +154,14 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
         }
 
         setEdad(value);
-        // setEdad(Number(event.target.value));
-        
-        // props.addMembers(email);
-        // setEmail("")
-
+       
     };
 
     const handleChangeSexo = (event:ChangeEvent<HTMLInputElement>)=>{
          
         console.log(event?.target.value);
         setSexo(event.target.value);
-        // props.addMembers(email);
-        // setEmail("")
+       
 
     };
 
@@ -169,146 +169,88 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
          
         console.log(event?.target.value);
         setRol(event.target.value);
-        // props.addMembers(email);
-        // setEmail("")
+       
 
     };
 
-    const handleChangeLink = (event:ChangeEvent<HTMLInputElement>)=>{
-         
+    const handleChangeLink = (event:ChangeEvent<HTMLInputElement>)=>{ 
         console.log(event?.target.value);
         setLink(event.target.value);
-        // props.addMembers(email);
-        // setEmail("")
-
     };
-
-  
-
-
 
 return (
 
-    <form onSubmit={handleSubmit} >
+    <UiForm
+        onSubmit={handleSubmit}
+    >
+       <FormTitle
+            title={isEditing ? "Editar integrante" : "Nuevo integrante"}
+            subtitle="Registro del semillero CIFOSIG"
+        />
+
+        <FormField label="Imagen">
+            <FormInput
+                type='file'
+                accept='image/*'
+                onChange={handleChangeImagen}
+            />
+        </FormField>
+
+        <FormField label="Nombre">
+            <FormInput
+                value={nombre}
+                onChange={handleChangeNombre}
+            />
             
-            <div className='flex flex-col gap-2 items-center bg-[var(--forestgreen)] p-4 rounded-lg'>
-                <h2 className="label-wrapper">
-                     Register members in the seedbed SIFOCIG 
-                </h2>
-                <p>
-                    <label htmlFor="foto" className='mr-2'>Foto</label>
-                     <input
-                        type="file"
-                        id="foto"
-                        className="border-2 field-sizing-content"
-                        name="member_imagen"
-                        autoComplete="off"
-                        // value={image}
-                        accept='image/*'
-                        onChange={handleChangeImagen}
-                        />
+        </FormField>
+        <FormField label="Apellido">
+            <FormInput
+                value={apellido}
+                onChange={handleChangeApellido}
+            />
+        </FormField>
+        <FormField label="Edad">
+            <FormInput
+                type='number'
+                value={edad}
+                onChange={handleChangeEdad}
+            />
+        </FormField>
+        <FormField label="Sexo">
+            <FormInput
+                value={sexo}
+                onChange={handleChangeSexo}
+            />
+        </FormField>
+        <FormField label="Rol">
+            <FormInput
+                value={rol}
+                onChange={handleChangeRol}
+            />
+        </FormField>
+        <FormField label="Link">
+            <FormInput
+                value={link}
+                onChange={handleChangeLink}
+            />
+        </FormField>
 
-                </p>
+        <FormActions>
 
-                <p>
-                    <label htmlFor="nombre" className='mr-2'>Nombre</label>
-                     <input
-                        type="text"
-                        id="nombre"
-                        className="border-2 field-sizing-content w-90"
-                        name="member_nombre"
-                        autoComplete="off"
-                        value={nombre}
-                        onChange={handleChangeNombre}
-                        />
+            <button type="submit" className='bg-cyan-500 rounded-md p-2 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500'>
+            {isEditing ? "Guardar cambios" : "Agregar integrante"}
+            </button>
 
-                </p>
+            <button
+            className='bg-pink-500 rounded-md p-2 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500'
+            type="button"
+            onClick={() => setFormActive(false)}
+            >
+            Cancelar
+            </button>
 
-                <p>
-                    <label htmlFor="apellido" className='mr-2'>Apellido</label>
-                     <input
-                        type="text"
-                        id="apellido"
-                        className="border-2 field-sizing-content w-90"
-                        name="member_apellido"
-                        autoComplete="off"
-                        value={apellido}
-                        onChange={handleChangeApellido}
-                        />
-
-                </p>
-                <p>
-                    <label htmlFor="edad" className='mr-2'>Edad</label>
-                     <input
-                        type="number"
-                        id="edad"
-                        className="border-2 field-sizing-content w-90"
-                        name="member_edad"
-                        autoComplete="off"
-                        value={edad}
-                        onChange={handleChangeEdad}
-                        />
-
-                </p>
-                <p>
-                    <label htmlFor="sexo" className='mr-2'>Sexo</label>
-                     <input
-                        type="text"
-                        id="sexo"
-                        className="border-2 field-sizing-content w-90"
-                        name="member_sexo"
-                        autoComplete="off"
-                        value={sexo}
-                        onChange={handleChangeSexo}
-                        />
-
-                </p>
-                <p>
-                    <label htmlFor="rol" className='mr-2'>Rol</label>
-                     <input
-                        type="text"
-                        id="rol"
-                        className="border-2 field-sizing-content w-90"
-                        name="member_rol"
-                        autoComplete="off"
-                        value={rol}
-                        onChange={handleChangeRol}
-                        />
-
-                </p>
-                <p>
-                    <label htmlFor="link" className='mr-2'>Link</label>
-                     <input
-                        type="text"
-                        id="link"
-                        className="border-2 field-sizing-content w-90"
-                        name="member_link"
-                        autoComplete="off"
-                        value={link}
-                        onChange={handleChangeLink}
-                        />
-
-                </p>
-               <div className='flex justify-between w-full'>
-
-                    <button type="submit" className="bg-indigo-500 opacity-100 w-full">
-                        Add
-                    </button>
-
-                    <button
-                       type="button" 
-                       className="bg-red-500 opacity-100 w-full"
-                       onClick={()=>{
-                        setFormActive(false)
-                       }}
-                       >
-                        close
-                    </button>
-
-               </div>
-                
-            </div>
-            </form>
+        </FormActions>
+    </UiForm>
 )
 }
 
