@@ -5,6 +5,7 @@ import { NewMember, Member } from "@/types/InNewMember";
 import { MembeSchema } from "@/validators/members";
 import { useState, useEffect } from 'react';
 import { createMember, getMembers, killMember, putMember } from "@/services/integrantes";
+import { uploadFile } from "@/services/storage";
 
 
 export function useMember () {
@@ -26,9 +27,14 @@ export function useMember () {
 
      //Agregar un nuevo integrante usando el servicio
      const addMembers = async (
-            member:NewMember
+            member:NewMember,
+            imagenFile?: File | null
         ): Promise<boolean>=>{
             try{
+
+            setError(null)
+
+
             // Validación adicional en el frontend
             const result = MembeSchema.safeParse(member);
     
@@ -40,9 +46,22 @@ export function useMember () {
     
                 return false;
             }
+
+            let imagenUrl = member.imagen
+
+            if (imagenFile){
+                imagenUrl = await uploadFile(
+                    imagenFile,
+                    "integrantes"
+                )
+            }
     
             //si la imagen esta vacio agregar una imagen generica
-            const newMember = await createMember(member)
+            const newMember = await createMember({
+                ...member,
+                imagen: imagenUrl
+            })
+
             setIntegrantes(prev => [...prev, newMember])
     
             return true

@@ -16,7 +16,10 @@ export interface Member extends NewMember{
 }
 
 interface FormProps {
-   addMembers: (member:NewMember) => Promise<boolean>; // Función que recibe un string y no devuelve nada
+   addMembers: (
+    member:NewMember,
+    imagenFile?: File | null
+    ) => Promise<boolean>; // Función que recibe un string y no devuelve nada
    updateMember:(
      id:string,
      member:NewMember
@@ -32,7 +35,17 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
     const [edad, setEdad] = useState("");
     const [sexo, setSexo] = useState("");
     const [rol, setRol] = useState("");
+    // ******* Para crear la url de enviar al storage
+    // Imagen guardada en firestore
     const [imagen, setImagen] = useState("");
+
+    // Archivo que acaba de seleccionar el usuario
+    const [imagenFile, setImagenFile] = useState<File | null>(null);
+    
+    // Imagen termporal para mostrar en el formulario
+    const [previewImagen, setPreviewImagen] = useState("");
+
+    // **********************************************
     const [link, setLink] = useState("");
 
     useEffect(() => {
@@ -98,7 +111,9 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
                 rol,
                 imagen,
                 link,
-            });
+            },
+            imagenFile
+        );
 
             if(success){
 
@@ -117,15 +132,22 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
         
     }
 
-    const handleChangeImagen = (event: ChangeEvent<HTMLInputElement>)=>{
+    const handleChangeImagen = (
+        event: ChangeEvent<HTMLInputElement>
+    )=>{
+
         if(event.target.files && event.target.files[0]){
+
             const file = event.target.files[0]
             
             console.log(event.target.value);
 
-            const imageUrl = URL.createObjectURL(file);
+            setImagenFile(file)
 
-            setImagen(imageUrl);
+            // Se crea una ruta temporal para mostrar la imagen en el formulario
+            const preview = URL.createObjectURL(file);
+
+            setPreviewImagen(preview);
         }
 
     }
