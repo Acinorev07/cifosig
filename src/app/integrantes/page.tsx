@@ -52,8 +52,12 @@ export default function MembersPage(){
                                   }
                                   onDelete={
                                     (id)=>{
-                                        
-                                        deleteMember(id.toString());   
+                                        const member = integrantes.find(i => i.id === id);
+                                        if(member){
+
+                                            deleteMember(member.id,member.imagen);   
+
+                                        }
                                     }
                                   }
                                 />
@@ -97,8 +101,8 @@ export default function MembersPage(){
                 <div className="flex justify-center items-center min-h-screen">
                     <Form
                         addMembers={addMembers}
-                        updateMember={(id, member) =>
-                            updateMember(id, member, () => setFormActive(false))
+                        updateMember={
+                            updateMember
                         }
                         formActive={formActive}
                         setFormActive={setFormActive}

@@ -5,7 +5,7 @@ import { NewMember, Member } from "@/types/InNewMember";
 import { MembeSchema } from "@/validators/members";
 import { useState, useEffect } from 'react';
 import { createMember, getMembers, killMember, putMember } from "@/services/integrantes";
-import { uploadFile } from "@/services/storage";
+import { uploadFile, deleteFile ,getStoragePathFromUrl } from "@/services/storage";
 
 
 export function useMember () {
@@ -47,13 +47,21 @@ export function useMember () {
                 return false;
             }
 
+            console.log("updateMember", member.imagen)
+
             let imagenUrl = member.imagen
+            
+            console.log("Imagen actual:", member.imagen)
+            console.log("Nueva imagen:", imagenFile)
+
 
             if (imagenFile){
-                imagenUrl = await uploadFile(
+                const nuevaImagen = await uploadFile(
                     imagenFile,
                     "integrantes"
                 )
+
+                imagenUrl = nuevaImagen.url;
             }
     
             //si la imagen esta vacio agregar una imagen generica
@@ -78,7 +86,7 @@ export function useMember () {
         const updateMember = async(
                 id:string,
                 member:NewMember,
-                onSuccess?: () => void
+                imagenFile?: File | null
             ): Promise<boolean> =>{
                 try{
 
@@ -91,7 +99,59 @@ export function useMember () {
                             return false;
                         }
                         
-                        const resp = await putMember(id, member)
+                        console.log("updateMember", member.imagen)
+
+                        let imagenUrl = member.imagen
+
+                        console.log("Imagen actual:", member.imagen)
+                        console.log("Nueva imagen:", imagenFile)
+
+                        if (imagenFile){
+
+                            console.log("Subiendo nueva imagen...")
+
+
+                            const nuevaImagen = await uploadFile(
+                                imagenFile,
+                                "integrantes"
+                            )
+                            imagenUrl = nuevaImagen.url;
+
+                            console.log(
+                                "Nueva URL:",
+                                imagenUrl
+                            );
+
+
+                           // 2️⃣ Obtener path de la imagen anterior
+                            const imagenAnteriorPath =
+                                getStoragePathFromUrl(
+                                    member.imagen
+                                );
+
+                            console.log(
+                                    "Path imagen anterior:",
+                                    imagenAnteriorPath
+                                );
+
+                             // 3️⃣ Eliminar imagen anterior
+                                if (imagenAnteriorPath) {
+
+                                    await deleteFile(
+                                        imagenAnteriorPath
+                                    );
+
+                                    console.log(
+                                        "Imagen anterior eliminada"
+                                    );
+                                }
+                        }
+
+
+                        const resp = await putMember(id, {
+                            ...member,
+                            imagen: imagenUrl
+                        })
 
                         setIntegrantes(prev=>
                             prev.map(m=>
@@ -99,7 +159,7 @@ export function useMember () {
                             )
                         )
 
-                        onSuccess?.(); // Ejecuta el callback si existe
+                        // onSuccess?.(); // Ejecuta el callback si existe
                         return true;
 
 
@@ -111,11 +171,42 @@ export function useMember () {
 
             //Eliminar un integrante usando el servicio
             const deleteMember = async(
-                id:string
+                id:string,
+                imagen:string,
             ):Promise<boolean>=>{
             
             
                     try{
+
+
+
+                        console.log("Imagen a eliminar de storage", imagen)
+
+                        if(imagen){
+                            // 2️⃣ Obtener path de la imagen a eliminar
+                            const imagenDeletePath =
+                                getStoragePathFromUrl(
+                                    imagen
+                                );
+
+                            console.log(
+                                    "Path imagen a eliminar:",
+                                    imagenDeletePath
+                                );
+
+                             // 3️⃣ Eliminar imagen anterior
+                                if (imagenDeletePath) {
+
+                                    await deleteFile(
+                                        imagenDeletePath
+                                    );
+
+                                    console.log(
+                                        "Imagen anterior eliminada"
+                                    );
+                                }
+                        }
+
                         const resp = await killMember(id)
             
                         if (resp.success) {
