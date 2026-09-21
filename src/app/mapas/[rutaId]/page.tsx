@@ -39,7 +39,7 @@ export default function RutaId() {
   }, [rutaId])
 
   return (
-    <div className="grid grid-rows-[50px_1fr_160px] lg:grid-rows-[60px_60px_1fr_160px] font-sans items-center min-h-screen w-body">
+    <div className="grid grid-rows-[50px_1fr_160px] lg:grid-rows-[60px_60px_1fr_160px] font-sans items-center min-h-screen w-body gap-2">
       <Header row_span="row-start-1" isActive={isActive} setIsActive={setIsActive} />
 
       <aside className={`${isActive ? "absolute right-0 mr-4" : "hidden"} lg:hidden top-0 w-full bg-white z-50 rounded-md`}>
@@ -59,10 +59,7 @@ export default function RutaId() {
         ))}
       </aside>
 
-      <main 
-                      className=" flex-col lg:row-start-3 items-center items-start m-1"
-                      
-                  >
+      <main className=" flex-col lg:row-start-3 items-center items-start m-1">
 
       <div className="bg-white rounded-xl shadow p-4 mb-4">
         <h1 className="text-2xl font-bold text-gray-800">{nombre}</h1>
@@ -71,7 +68,7 @@ export default function RutaId() {
         </p>
       </div>
 
-      <div className="flex justify-center bg-white rounded-xl shadow overflow-hidden">
+      {/* <div className="flex justify-center bg-white rounded-xl shadow overflow-hidden"> */}
         <div className="flex justify-center h-screen w-200 p-2">
           {ruta ? (
               <ClientOnlyMaps
@@ -82,7 +79,7 @@ export default function RutaId() {
               <p>Cargando mapa...</p>
             )}
         </div>
-      </div>
+      {/* </div> */}
       </main>
       <Footer/>
     </div>

@@ -22,10 +22,11 @@ interface FormProps {
     ) => Promise<boolean>; // Función que recibe un string y no devuelve nada
    updateMember:(
      id:string,
-     member:NewMember
-   )=>Promise<boolean>
-   formActive: boolean
-   setFormActive: React.Dispatch<React.SetStateAction<boolean>>
+     member:NewMember,
+     imagenFile?: File | null
+   )=>Promise<boolean>;
+   formActive: boolean;
+   setFormActive: React.Dispatch<React.SetStateAction<boolean>>;
    member?: Member | null;
 }
 
@@ -51,13 +52,14 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
     useEffect(() => {
 
         if(member){
-
+            console.log("EDITAR MIEMBRO",member.imagen)
             setNombre(member.nombre);
             setApellido(member.apellido);
             setEdad(String(member.edad));
             setSexo(member.sexo);
             setRol(member.rol);
             setImagen(member.imagen);
+            console.log("set imagen: ",imagen)
             setLink(member.link);
 
         }else{
@@ -85,7 +87,9 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
 
         if(member){
             
-            console.log("miembro dentro de Form.tsx: ", member)
+            console.log("miembro dentro de Form.tsx, member: ", member)
+            console.log("miembro dentro de Form.tsx, imagenFile: ", imagenFile)
+            
             const success = await updateMember(member.id,{
                 nombre,
                 apellido,
@@ -94,11 +98,22 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
                 rol,
                 imagen,
                 link,
-            });
+            },
+            imagenFile
+            );
 
             if(success){
 
                 console.log("SUCCESS",success)
+                setNombre("");
+                setApellido("");
+                setEdad("");
+                setSexo("");
+                setRol("");
+                setImagen("");
+                setLink("");
+
+                setFormActive(false);
             }
 
         }else{
@@ -142,12 +157,16 @@ const Form = ({addMembers,updateMember ,formActive, setFormActive, member}:FormP
             
             console.log(event.target.value);
 
+            console.log("nueva imagen: ", file)
+
             setImagenFile(file)
 
             // Se crea una ruta temporal para mostrar la imagen en el formulario
             const preview = URL.createObjectURL(file);
 
             setPreviewImagen(preview);
+
+            // URL.revokeObjectURL(file)
         }
 
     }
