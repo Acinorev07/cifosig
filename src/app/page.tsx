@@ -75,7 +75,7 @@ export default function Home() {
 
   return (
     <>
-    <div className="fixed inset-0 -z-10 h-screen w-body">
+    <div className="fixed inset-0 -z-10 m-1 h-screen w-body">
         <Image
           src="/integrantes_lg.jpeg"
           alt="Integrantes del semillero CIFOSIG"

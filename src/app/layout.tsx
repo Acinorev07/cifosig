@@ -40,7 +40,7 @@ export default function RootLayout({
           bg 
           antialiased 
           items-center 
-          m-4
+          m-1
           `
         }
       >
