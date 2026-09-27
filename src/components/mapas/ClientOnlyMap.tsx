@@ -1,17 +1,16 @@
-// src/app/mapas/[rutaId]/components/ClientOnlyMaps.tsx
-
 "use client";
 
+// import MapWidgets from "@/components/mapas/MapWidget";
 import { useEffect, useState } from "react";
 // import MapWidgets from "./MapWidgets";
 
 import dynamic from "next/dynamic";
 
-const MapWidgets = dynamic(() => import("./MapWidgets"), {
+const MapWidgets = dynamic(() => import("@/components/mapas/MapWidget"), {
   ssr: false,
 });
 
-export default function ClientOnlyMaps({ geojson, fotosRuta }: { geojson?: string, fotosRuta?:string }) {
+export default function ClientOnlyMap({ geojson, fotosRuta }: { geojson?: string, fotosRuta?:string }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

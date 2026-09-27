@@ -3,14 +3,16 @@ import SidePanel from "@/components/SidePanel";
 import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
 import dynamic from "next/dynamic";
-import Image from "next/image";
-import HamburgerIcon from "@/components/HamburguerIcon";
+import { panelNavegacion } from "@/services/panelNav";
 import { useRouter } from "next/navigation";
 import CardRutas from "./components/CardRutas";
 import { callRutas } from "@/services/rutas";
 import { Ruta } from "@/types/InRutas";
+import Header from "@/components/Header";
+import { PanelItem } from "@/types/InPanelItems";
+import Link from "next/link";
 
-const ClientOnlyMap = dynamic(() => import("@/app/mapas/components/ClientOnlyMap"), {
+const ClientOnlyMap = dynamic(() => import("@/components/mapas/ClientOnlyMap"), {
   ssr: false,
 });
 
@@ -27,8 +29,14 @@ const ClientOnlyMap = dynamic(() => import("@/app/mapas/components/ClientOnlyMap
 export default function MapPage() {
   const [isActive, setIsActive] = useState(false);
   const [rutas, setRutas] = useState<Ruta[]>([]);
+  const [panelNav, setPanelNav] = useState<PanelItem[]>([]);
   const router = useRouter();
 
+  useEffect(() => {
+      panelNavegacion()
+        .then(setPanelNav)
+        .catch(console.error);
+    }, []);
 
   useEffect(()=>{
       callRutas()
@@ -40,39 +48,29 @@ export default function MapPage() {
     },[])
 
   return (
-    <div className="grid grid-rows-[50px_1fr_20px] font-sans items-center justify-items-center min-h-body px-2 py-4 gap-16 mb-8">
-          <header className="row-start-1 bg-[var(--forestgreen)] rounded-lg text-center p-4 mx-4 my-6 min-w-full mx-4 my-6 mt-15">
-            
-             <div className="flex justify-between">
-              <Image
-                src="/logo_uis.png"
-                alt ="Logo Universidad Industrial de Santader"
-                width={100}
-                height={10}
-              />
-              <h2 className="text-2xl font-bold p-2">CIFOSIG</h2>
-    
-               <button 
-                className={`hamburger hamburger--collapse ${
-                    isActive ? 'is-active' : ''
-                  }`}
-                onClick={() => setIsActive(!isActive)}
-                >
-                <HamburgerIcon/>
-                </button>
-    
-            </div>
-         
-          </header>
+    <div className="grid grid-rows-[50px_1fr_160px] lg:grid-rows-[60px_60px_1fr_160px] font-sans items-center min-h-screen w-body gap-2">
+          <Header row_span="row-start-1" isActive={isActive} setIsActive={setIsActive} />
     
           <aside className={`${isActive ? 'lg:absolute right-0 mr-4' : 'hidden'} top-0 w-full bg-white z-30 bg-white lg:top-[8rem] lg:h-[calc(130vh-8rem)] lg:-mt-6 lg:w-70 rounded-md`}>
             <SidePanel 
             isActive={isActive} setIsActive={setIsActive}
             />
           </aside>
+          <aside className="hidden lg:flex lg:row-start-2 items-center w-full bg-[var(--violet-400)]">
+                  {panelNav.map((section) => (
+                    <Link
+                      key={section.id}
+                      href={section.id}
+                      onClick={() => setIsActive(false)}
+                      className="flex-row p-4 text-center text-black rounded-md hover:bg-emerald-900 hover:text-emerald-200 transition"
+                    >
+                      {section.title}
+                    </Link>
+                  ))}
+            </aside>
           
           <main 
-            className="row-start-2  gap-3 items-center items-start mx-1 -my-2 mb-8 p-4"
+            className="row-start-2 lg:row-start-3 gap-3 items-center items-start mx-1 -my-2 mb-8 p-4"
             style={style}
           >
         <div className="relative z-0 py-20 px-4 lg:px-20">

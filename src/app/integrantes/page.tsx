@@ -73,7 +73,7 @@ export default function MembersPage(){
     }
        return (
 
-        <div className="grid grid-rows-[50px_1fr_160px] lg:grid-rows-[60px_60px_1fr_160px] font-sans items-center min-h-screen w-body">
+        <div className="grid grid-rows-[50px_1fr_160px] lg:grid-rows-[60px_60px_1fr_160px] gap-2 font-sans items-center min-h-screen w-full">
             <Header row_span="row-start-1" isActive ={isActive} setIsActive={setIsActive}/>
 
             <aside className={`${isActive ? 'absolute right-0 mr-4' : 'hidden'} lg:hidden top-0 w-full bg-white z-50 rounded-md`}>
@@ -94,7 +94,7 @@ export default function MembersPage(){
                     ))}
             </aside>
             <main 
-                className=" flex-col lg:row-start-3 items-center items-start"
+                className=" flex-col lg:row-start-3 items-center items-start m-2 p-2"
                 
             >
                  {formActive ? (
