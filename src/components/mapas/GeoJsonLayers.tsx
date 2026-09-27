@@ -1,5 +1,3 @@
-// src/app/mapas/[rutaId]/components/GeoJsonLayers.tsx
-
 "use client";
 
 import { GeoJSON } from "react-leaflet";

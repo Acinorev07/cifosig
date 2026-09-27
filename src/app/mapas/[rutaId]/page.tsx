@@ -2,7 +2,7 @@
 
 'use client'
 
-import ClientOnlyMaps from "./components/ClientOnlyMaps";
+import ClientOnlyMap from "@/components/mapas/ClientOnlyMap";
 import { useState, useEffect } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import Header from "@/components/Header";
@@ -59,19 +59,20 @@ export default function RutaId() {
         ))}
       </aside>
 
-      <main className=" flex-col lg:row-start-3 items-center items-start m-1">
+      <main className="row-start-2 lg:row-start-3 gap-3 items-center items-start mx-1 mb-8 p-4">
 
-      <div className="bg-white rounded-xl shadow p-4 mb-4">
+      <div className="bg-white rounded-xl shadow p-4">
         <h1 className="text-2xl font-bold text-gray-800">{nombre}</h1>
         <p className="text-gray-500 text-sm">
           Visualización geográfica de la ruta {ruta?.nombre}
         </p>
       </div>
 
-      {/* <div className="flex justify-center bg-white rounded-xl shadow overflow-hidden"> */}
-        <div className="flex justify-center h-screen w-200 p-2">
+      {/* <div className="flex justify-center bg-white rounded-xl shadow overflow-hidden">
+        <div className="flex justify-center h-screen w-200 p-2"> */}
+        <div className="relative z-0 px-4 lg:px-20">
           {ruta ? (
-              <ClientOnlyMaps
+              <ClientOnlyMap
                 geojson={ruta.geojson}
                 fotosRuta={ruta.fotosRuta}
               />
@@ -79,7 +80,8 @@ export default function RutaId() {
               <p>Cargando mapa...</p>
             )}
         </div>
-      {/* </div> */}
+        {/* </div>
+      </div> */}
       </main>
       <Footer/>
     </div>
